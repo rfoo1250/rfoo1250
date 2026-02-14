@@ -1,4 +1,10 @@
+# Virtual Enviroments
+venv/
+*_venv/
+nodevenv/
 
+# Sass
+css/style.css.map
 
 # Misch
 old_*
