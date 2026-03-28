@@ -1,0 +1,32 @@
+[
+    {
+        "id": "proj-launch",
+        "title": "Project Launch — June 2024",
+        "excerpt": "Launched a small game prototype exploring physics-based puzzles. Built with Phaser and React — learned about optimization and art pipelines.",
+        "date": "2024-06-12",
+        "meta": "Los Angeles · Prototype",
+        "image": "assets/jpeg/project-mockup-example.jpeg",
+        "imageAlt": "Screenshot of project launch",
+        "url": "https://example.com/article-1"
+    },
+    {
+        "id": "graduation",
+        "title": "Graduation Ceremony",
+        "excerpt": "Graduated with a degree in Computer Science. Highlights included my capstone on web accessibility and a summer internship.",
+        "date": "2023-05-15",
+        "meta": null,
+        "image": "assets/jpeg/graduation-photo.jpeg",
+        "imageAlt": "Graduation photo",
+        "url": "./journey/graduation.html"
+    },
+    {
+        "id": "volunteer",
+        "title": "Volunteer Work — Food Bank",
+        "excerpt": "Volunteered weekly — learned logistics, teamwork, and community outreach.",
+        "date": "2022-11",
+        "meta": null,
+        "image": null,
+        "imageAlt": null,
+        "url": null
+    }
+]

@@ -3,36 +3,199 @@ const hamMenuBtn = document.querySelector('.header__main-ham-menu-cont')
 const smallMenu = document.querySelector('.header__sm-menu')
 const headerHamMenuBtn = document.querySelector('.header__main-ham-menu')
 const headerHamMenuCloseBtn = document.querySelector(
-  '.header__main-ham-menu-close'
+	'.header__main-ham-menu-close'
 )
 const headerSmallMenuLinks = document.querySelectorAll('.header__sm-menu-link')
 
 hamMenuBtn.addEventListener('click', () => {
-  if (smallMenu.classList.contains('header__sm-menu--active')) {
-    smallMenu.classList.remove('header__sm-menu--active')
-  } else {
-    smallMenu.classList.add('header__sm-menu--active')
-  }
-  if (headerHamMenuBtn.classList.contains('d-none')) {
-    headerHamMenuBtn.classList.remove('d-none')
-    headerHamMenuCloseBtn.classList.add('d-none')
-  } else {
-    headerHamMenuBtn.classList.add('d-none')
-    headerHamMenuCloseBtn.classList.remove('d-none')
-  }
+	if (smallMenu.classList.contains('header__sm-menu--active')) {
+		smallMenu.classList.remove('header__sm-menu--active')
+	} else {
+		smallMenu.classList.add('header__sm-menu--active')
+	}
+	if (headerHamMenuBtn.classList.contains('d-none')) {
+		headerHamMenuBtn.classList.remove('d-none')
+		headerHamMenuCloseBtn.classList.add('d-none')
+	} else {
+		headerHamMenuBtn.classList.add('d-none')
+		headerHamMenuCloseBtn.classList.remove('d-none')
+	}
 })
 
 for (let i = 0; i < headerSmallMenuLinks.length; i++) {
-  headerSmallMenuLinks[i].addEventListener('click', () => {
-    smallMenu.classList.remove('header__sm-menu--active')
-    headerHamMenuBtn.classList.remove('d-none')
-    headerHamMenuCloseBtn.classList.add('d-none')
-  })
+	headerSmallMenuLinks[i].addEventListener('click', () => {
+		smallMenu.classList.remove('header__sm-menu--active')
+		headerHamMenuBtn.classList.remove('d-none')
+		headerHamMenuCloseBtn.classList.add('d-none')
+	})
 }
 
 // ---
 const headerLogoConatiner = document.querySelector('.header__logo-container')
 
 headerLogoConatiner.addEventListener('click', () => {
-  location.href = 'index.html'
+	location.href = 'index.html'
 })
+
+// ----------------------------------------------------------------------
+// Journey injection script
+// ----------------------------------------------------------------------
+
+const JOURNEY_JSON_PATH = "./data/json/journey.json";
+const FALLBACK_CARDS = [
+	{
+		id: "proj-launch",
+		title: "Project Launch — June 2024",
+		excerpt: "Launched a small game prototype exploring physics-based puzzles. Built with Phaser and React — learned about optimization and art pipelines.",
+		date: "2024-06-12",
+		meta: "Los Angeles · Prototype",
+		image: "./assets/jpeg/project-mockup-example.jpeg",
+		imageAlt: "Screenshot of project launch",
+		url: "https://example.com/article-1"
+	},
+	{
+		id: "graduation",
+		title: "Graduation Ceremony",
+		excerpt: "Graduated with a degree in Computer Science. Highlights included my capstone on web accessibility and a summer internship.",
+		date: "2023-05-15",
+		meta: null,
+		image: "./assets/jpeg/graduation-photo.jpeg",
+		imageAlt: "Graduation photo",
+		url: "./journey/graduation.html"
+	},
+	{
+		id: "volunteer",
+		title: "Volunteer Work — Food Bank",
+		excerpt: "Volunteered weekly — learned logistics, teamwork, and community outreach.",
+		date: "2022-11",
+		meta: null,
+		image: null,
+		imageAlt: null,
+		url: null
+	}
+];
+
+// format date to human-readable e.g. "Jun 12, 2024"
+function formatDate(iso) {
+	if (!iso) return "";
+	try {
+		const dt = new Date(iso);
+		if (isNaN(dt)) return iso; // fallback if partial like "2022-11"
+		return dt.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+	} catch (e) {
+		return iso;
+	}
+}
+
+function createCardNode(card) {
+	// choose tag: anchor if clickable, article if not
+	const wrapper = card.url
+		? document.createElement("a")
+		: document.createElement("article");
+
+	// common classes and attributes
+	wrapper.className = "journey__card" + (card.url ? " journey__card--link" : "");
+	if (card.url) {
+		wrapper.setAttribute("href", card.url);
+		wrapper.setAttribute("rel", "noopener noreferrer");
+		wrapper.setAttribute("target", "_blank");
+		wrapper.setAttribute("aria-label", card.title);
+	} else {
+		// for articles give an accessible name by id
+		if (card.id) wrapper.setAttribute("aria-labelledby", `${card.id}-title`);
+	}
+
+	// body
+	const body = document.createElement("div");
+	body.className = "journey__card-body";
+
+	const title = document.createElement("h3");
+	title.className = "journey__card-title";
+	title.id = card.id ? `${card.id}-title` : undefined;
+	title.textContent = card.title || "Untitled";
+
+	const excerpt = document.createElement("p");
+	excerpt.className = "journey__card-excerpt";
+	excerpt.textContent = card.excerpt || "";
+
+	const meta = document.createElement("p");
+	meta.className = "journey__card-meta";
+	const dateText = formatDate(card.date);
+	meta.innerHTML = [
+		card.meta ? `${card.meta}` : "",
+		dateText ? `<time datetime="${card.date}">${dateText}</time>` : ""
+	].filter(Boolean).join(" · ");
+
+	body.appendChild(title);
+	body.appendChild(excerpt);
+	body.appendChild(meta);
+
+	// optional action button for non-clickable cards
+	if (!card.url) {
+		const actions = document.createElement("div");
+		actions.className = "journey__card-actions";
+		// only show Read button if local url exists (you could extend data with 'readUrl')
+		if (card.readUrl) {
+			const btn = document.createElement("a");
+			btn.className = "btn btn--sm";
+			btn.setAttribute("href", card.readUrl);
+			btn.setAttribute("target", "_blank");
+			btn.setAttribute("rel", "noopener noreferrer");
+			btn.textContent = "Read";
+			actions.appendChild(btn);
+		}
+		if (actions.children.length) body.appendChild(actions);
+	}
+
+	wrapper.appendChild(body);
+
+	// optional media
+	if (card.image) {
+		const media = document.createElement("div");
+		media.className = "journey__card-media";
+		const img = document.createElement("img");
+		img.setAttribute("src", card.image);
+		img.setAttribute("alt", card.imageAlt || "");
+		img.setAttribute("loading", "lazy");
+		// optional: set width/height attributes if you have them to help layout shift
+		media.appendChild(img);
+		wrapper.appendChild(media);
+	}
+
+	return wrapper;
+}
+
+async function loadAndRenderCards() {
+	const container = document.getElementById("journeyCards");
+	if (!container) return console.warn("Journey container not found");
+
+	// Try to fetch journey.json (fallback to inline array if fetch fails)
+	let cards = null;
+	try {
+		const resp = await fetch(JOURNEY_JSON_PATH, { cache: "no-cache" });
+		if (resp.ok) {
+			cards = await resp.json();
+		} else {
+			cards = FALLBACK_CARDS;
+		}
+	} catch (e) {
+		// network error or file not present — use fallback
+		cards = FALLBACK_CARDS;
+	}
+
+	// clear container
+	container.innerHTML = "";
+
+	// create nodes and append
+	for (const card of cards) {
+		const node = createCardNode(card);
+		container.appendChild(node);
+	}
+}
+
+// run on DOM ready
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", loadAndRenderCards);
+} else {
+	loadAndRenderCards();
+}
