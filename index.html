@@ -5,6 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'self' https://YOUR_BACKEND_URL; object-src 'none'; base-uri 'self';" />
 	<title>Atlas' Odyssey</title>
 	<meta name="description" content="Rui Heng Foo's Personal Portfolio Page " />
 
@@ -202,8 +203,8 @@
 	<section id="journey" class="journey sec-pad">
 		<div class="main-container">
 			<h2 class="heading heading-sec heading-sec__mb-med">
-				<span class="heading-sec__main">Journey</span>
-				<span class="heading-sec__sub">A log of past events and highlights</span>
+				<span class="heading-sec__main heading-sec__main--lt">Journey</span>
+				<span class="heading-sec__sub heading-sec__sub--lt">A log of past events and highlights</span>
 			</h2>
 
 			<!-- injection target -->
@@ -276,6 +277,61 @@
 		</div>
 	</section>
 	<!-- TODO: back to start button? -->
+	<section id="contact" class="contact sec-pad dynamicBg">
+		<div class="main-container">
+			<h2 class="heading heading-sec heading-sec__mb-med">
+				<span class="heading-sec__main heading-sec__main--lt">Contact</span>
+				<span class="heading-sec__sub heading-sec__sub--lt">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis
+					tempora explicabo quae quod deserunt eius sapiente
+				</span>
+			</h2>
+			<div class="contact__form-container">
+				<form action="#" class="contact__form">
+					<div class="contact__form-field">
+						<label class="contact__form-label" for="name">Name</label>
+						<input
+							required
+							placeholder="Enter Your Name"
+							type="text"
+							class="contact__form-input"
+							name="name"
+							id="name"
+						/>
+					</div>
+					<div class="contact__form-field">
+						<label class="contact__form-label" for="email">Email</label>
+						<input
+							required
+							placeholder="Enter Your Email"
+							type="email"
+							class="contact__form-input"
+							name="email"
+							id="email"
+						/>
+					</div>
+					<div class="contact__form-field">
+						<label class="contact__form-label" for="message">Message</label>
+						<textarea
+							required
+							cols="30"
+							rows="10"
+							class="contact__form-input"
+							placeholder="Enter Your Message"
+							name="message"
+							id="message"
+						></textarea>
+					</div>
+					<div class="contact__honeypot" aria-hidden="true">
+						<input type="text" name="website" tabindex="-1" autocomplete="off" />
+					</div>
+					<button type="submit" class="btn btn--theme contact__btn">
+						Submit
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
 	<footer class="main-footer">
 		<div class="main-container">
 			<div class="main-footer__upper">
@@ -284,7 +340,7 @@
 						<span>Contact & Socials</span>
 					</h2>
 					<div class="main-footer__social-cont">
-						<a target="_blank" rel="noreferrer" href="mailto:rfoo1@asu.edu" class="main-footer__icon">
+						<a id="email-link" target="_blank" rel="noreferrer" class="main-footer__icon">
 							<img src="./assets/png/white-email-ico.png" alt="Email Rui Heng Foo" />
 						</a>
 

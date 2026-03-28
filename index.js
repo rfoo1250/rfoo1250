@@ -199,3 +199,73 @@ if (document.readyState === "loading") {
 } else {
 	loadAndRenderCards();
 }
+
+// ----------------------------------------------------------------------
+// Email obfuscation — keep address out of static HTML
+// ----------------------------------------------------------------------
+;(function () {
+	const u = 'rfoo1', d = 'asu.edu'
+	const el = document.getElementById('email-link')
+	if (el) el.href = 'mailto:' + u + '@' + d
+})()
+
+// ----------------------------------------------------------------------
+// Contact form
+// ----------------------------------------------------------------------
+// TODO: replace with your deployed backend URL before going live
+const CONTACT_ENDPOINT = 'https://YOUR_BACKEND_URL/contact'
+
+const contactForm = document.querySelector('.contact__form')
+if (contactForm) {
+	let lastSubmit = 0
+
+	contactForm.addEventListener('submit', async (e) => {
+		e.preventDefault()
+
+		// Client-side guard mirrors the server-side rate limit
+		if (Date.now() - lastSubmit < 10000) {
+			showFormMsg('Please wait 10 seconds before submitting again.', false)
+			return
+		}
+
+		const btn = contactForm.querySelector('button[type="submit"]')
+		btn.disabled = true
+		btn.textContent = 'Sending\u2026'
+
+		try {
+			const resp = await fetch(CONTACT_ENDPOINT, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					name:    contactForm.querySelector('#name').value,
+					email:   contactForm.querySelector('#email').value,
+					message: contactForm.querySelector('#message').value,
+					website: contactForm.querySelector('[name="website"]').value,
+				}),
+			})
+			const data = await resp.json()
+			if (resp.ok) {
+				lastSubmit = Date.now()
+				contactForm.reset()
+			}
+			showFormMsg(resp.ok ? data.message : data.error, resp.ok)
+		} catch {
+			showFormMsg('Network error. Please try again.', false)
+		} finally {
+			btn.disabled = false
+			btn.textContent = 'Submit'
+		}
+	})
+}
+
+function showFormMsg(msg, ok) {
+	let el = document.getElementById('contact-form-msg')
+	if (!el) {
+		el = document.createElement('p')
+		el.id = 'contact-form-msg'
+		el.style.cssText = 'margin-top:1.5rem;font-size:1.6rem;font-weight:600;text-align:right;'
+		document.querySelector('.contact__form-container').appendChild(el)
+	}
+	el.textContent = msg
+	el.style.color = ok ? '#2ecc71' : '#e74c3c'
+}
