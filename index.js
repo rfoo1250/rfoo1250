@@ -41,7 +41,7 @@ headerLogoConatiner.addEventListener('click', () => {
 // Journey injection script
 // ----------------------------------------------------------------------
 
-const JOURNEY_JSON_PATH = "./data/json/journey.json";
+const JOURNEY_JSON_PATH = CONFIG.journeyJsonPath;
 const FALLBACK_CARDS = [
 	{
 		id: "proj-launch",
@@ -204,16 +204,14 @@ if (document.readyState === "loading") {
 // Email obfuscation — keep address out of static HTML
 // ----------------------------------------------------------------------
 ;(function () {
-	const u = 'rfoo1', d = 'asu.edu'
 	const el = document.getElementById('email-link')
-	if (el) el.href = 'mailto:' + u + '@' + d
+	if (el) el.href = 'mailto:' + CONFIG.emailUser + '@' + CONFIG.emailDomain
 })()
 
 // ----------------------------------------------------------------------
 // Contact form
 // ----------------------------------------------------------------------
-// TODO: replace with your deployed backend URL before going live
-const CONTACT_ENDPOINT = 'https://YOUR_BACKEND_URL/contact'
+const CONTACT_ENDPOINT = CONFIG.contactEndpoint
 
 const contactForm = document.querySelector('.contact__form')
 if (contactForm) {
