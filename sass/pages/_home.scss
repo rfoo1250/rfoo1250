@@ -292,6 +292,9 @@
       width: 100%;
     }
   }
+  &__honeypot {
+    display: none;
+  }
 }
 
 // ---------- Variables (tweak as needed) ----------
@@ -413,6 +416,7 @@ $journey-meta-size: 0.85rem;
       color: rgba(255,255,255,0.88);
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -487,6 +491,7 @@ $journey-meta-size: 0.85rem;
 
       &-excerpt {
         -webkit-line-clamp: 4;
+        line-clamp: 4;
       }
     }
   } // end respond(tab-port)

@@ -520,6 +520,9 @@ textarea {
     width: 100%;
   }
 }
+.contact__honeypot {
+  display: none;
+}
 
 .journey {
   background: linear-gradient(to right, rgba(62, 180, 137, 0.8), rgba(62, 180, 137, 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
@@ -603,6 +606,7 @@ textarea {
   color: rgba(255, 255, 255, 0.88);
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -667,6 +671,7 @@ textarea {
   }
   .journey .journey__card-excerpt {
     -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 }
 .journey__year-divider {
