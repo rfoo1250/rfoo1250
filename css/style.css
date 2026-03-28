@@ -413,112 +413,166 @@ textarea {
   }
 }
 
-.contact {
+.journey {
   background: linear-gradient(to right, rgba(62, 180, 137, 0.8), rgba(62, 180, 137, 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-size: cover;
   background-position: center;
+  padding: 4rem 0;
 }
-.contact__form-container {
+.journey .heading {
+  margin-bottom: 1.25rem;
+}
+.journey__cards-container {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background: white;
+  background: rgba(255, 255, 255, 0.02);
   padding: 4rem;
   margin-top: 6rem;
   max-width: 80rem;
-  text-align: right;
   width: 95%;
   border-radius: 5px;
   margin: 5rem auto 0 auto;
+  display: grid;
+  gap: 2rem;
 }
 @media only screen and (max-width: 37.5em) {
-  .contact__form-container {
+  .journey__cards-container {
     padding: 3rem;
+    gap: 1rem;
   }
 }
-.contact__form-field {
-  margin-bottom: 4rem;
+.journey__card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  min-height: 88px;
 }
-@media only screen and (max-width: 37.5em) {
-  .contact__form-field {
-    margin-bottom: 3rem;
-  }
+.journey__card--link {
+  cursor: pointer;
 }
-.contact__form-label {
-  color: #666;
-  font-size: 1.4rem;
-  letter-spacing: 1px;
+.journey__card--link:hover, .journey__card--link:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+  outline: none;
+}
+.journey__card--link:focus-visible {
+  outline: 3px solid rgba(100, 150, 255, 0.18);
+  outline-offset: 2px;
+}
+.journey__card--reverse {
+  flex-direction: row-reverse;
+}
+.journey__card--sm {
+  padding: 0.75rem;
+  min-height: 64px;
+}
+.journey__card-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.journey__card-title {
+  margin: 0;
+  font-size: 1.06rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: inherit;
+  word-break: break-word;
+}
+.journey__card-excerpt {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.88);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.journey__card-meta {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.journey__card-meta time {
+  font-style: normal;
+  color: inherit;
+}
+.journey__card-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.journey__card-media {
+  flex: 0 0 180px;
+  width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  aspect-ratio: 1.7777777778;
+}
+.journey__card-media img {
   display: block;
-  text-align: left;
-}
-.contact__form-input {
-  color: #333;
-  padding: 2rem;
   width: 100%;
-  border: 1px solid rgb(235, 235, 235);
-  font-size: 1.6rem;
-  letter-spacing: 0px;
-  background: #f0f0f0;
-  border-radius: 5px;
-  font-weight: 600;
-  /* Code for Modern Browsers */
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-.contact__form-input::placeholder {
-  color: #999;
-  font-weight: 600;
-  font-size: 1.6rem;
+.journey__card--no-media .journey__card-body {
+  padding-right: 0;
 }
-.contact__form-input {
-  /* Code for WebKit, Blink, Edge */
-}
-.contact__form-input::-webkit-input-placeholder {
-  color: #999;
-  font-weight: 600;
-  font-size: 1.6rem;
-}
-.contact__form-input {
-  /* Code for Internet Explorer 10-11 */
-}
-.contact__form-input:-ms-input-placeholder {
-  color: #999;
-  font-weight: 600;
-  font-size: 1.6rem;
-}
-.contact__form-input {
-  /* Code for Microsoft Edge */
-}
-.contact__form-input::-ms-input-placeholder {
-  color: #999;
-  font-weight: 600;
-  font-size: 1.6rem;
-}
-.contact__form-input {
-  /* Code for Mozilla Firefox 4 to 18 */
-}
-.contact__form-input:-moz-placeholder {
-  opacity: 1;
-  color: #999;
-  font-weight: 600;
-  font-size: 1.6rem;
-}
-.contact__form-input {
-  /* Code for Mozilla Firefox 19+ */
-}
-.contact__form-input::-moz-placeholder {
-  opacity: 1;
-  color: #999;
-  font-weight: 600;
-  font-size: 1.6rem;
-}
-.contact__btn {
-  width: 30%;
-  padding: 2rem 4rem;
-  font-size: 1.6rem;
-}
-@media only screen and (max-width: 37.5em) {
-  .contact__btn {
-    width: 100%;
+@media only screen and (max-width: 56.25em) {
+  .journey {
+    padding: 2.25rem 0;
   }
+  .journey__cards-container {
+    gap: 1rem;
+  }
+  .journey .journey__card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .journey .journey__card--reverse {
+    flex-direction: column;
+  }
+  .journey .journey__card-media {
+    width: 100%;
+    flex: 0 0 auto;
+    aspect-ratio: 1.7777777778;
+    margin-top: 0.6rem;
+  }
+  .journey .journey__card-excerpt {
+    -webkit-line-clamp: 4;
+  }
+}
+.journey__year-divider {
+  font-weight: 700;
+  padding: 0.5rem 0;
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.85);
+}
+.journey__empty {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 2rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .project-cs-hero {
@@ -822,14 +876,32 @@ textarea {
   line-height: 1.7;
 }
 .main-footer__social-cont {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
-.main-footer__icon {
-  margin-right: 1rem;
-  width: 2.5rem;
+.main-footer__item {
+  display: inherit;
+  align-items: center;
+  gap: 0.5rem;
 }
-.main-footer__icon--mr-none {
-  margin-right: 0;
+.main-footer__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  flex: 0 0 24px;
+  vertical-align: middle;
+}
+.main-footer__icon img, .main-footer__icon svg {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 .main-footer__lower {
   padding: 4rem 0;

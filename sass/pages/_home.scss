@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .home-hero {
   color: #fff;
   background: linear-gradient(
@@ -187,7 +189,23 @@
   }
 }
 
-.contact {
+// ---------- Variables (tweak as needed) ----------
+$journey-gap: 2rem;
+$journey-card-padding: 1.25rem;
+$journey-card-radius: 12px;
+$journey-card-bg: rgba(255,255,255,0.03);
+$journey-card-shadow: 0 6px 18px rgba(0,0,0,0.10);
+$journey-media-width: 180px;
+$journey-media-aspect: math.div(16, 9);
+$journey-transition: 160ms ease;
+$journey-gap-mobile: 1rem;
+$journey-font-scale-title: 1.06rem;
+$journey-font-scale-excerpt: 0.96rem;
+$journey-meta-size: 0.85rem;
+
+// ---------- Journey section with dynamic background ----------
+.journey {
+  // mirror the contact background you provided
   background: linear-gradient(
       to right,
       rgba($themeClrPrimary, 0.8),
@@ -196,98 +214,191 @@
     url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-size: cover;
   background-position: center;
+  padding: 4rem 0;
 
-  &__form-container {
+  // heading spacing
+  .heading {
+    margin-bottom: 1.25rem;
+  }
+
+  // ---------- Cards container ----------
+  &__cards-container {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background: rgba(#fff, 2);
+    // background: rgba(255, 255, 255, 0.02); // subtle card surface over bg
     padding: 4rem;
     margin-top: 6rem;
     max-width: 80rem;
-    text-align: right;
     width: 95%;
     border-radius: $commonBorderRadius;
-
     margin: 5rem auto 0 auto;
+
+    display: grid;
+    gap: $journey-gap;
+
     @include respond(phone) {
       padding: 3rem;
+      gap: $journey-gap-mobile;
     }
   }
-  &__form-field {
-    margin-bottom: 4rem;
-    @include respond(phone) {
-      margin-bottom: 3rem;
+
+  // ---------- Individual card styles ----------
+  &__card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    background: $journey-card-bg;
+    padding: $journey-card-padding;
+    border-radius: $journey-card-radius;
+    box-shadow: $journey-card-shadow;
+    color: inherit;
+    text-decoration: none;
+    transition: transform $journey-transition, box-shadow $journey-transition,
+      background $journey-transition;
+    min-height: 88px;
+
+    // clickable whole-card variant
+    &--link {
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: 3px solid rgba(100,150,255,0.18);
+        outline-offset: 2px;
+      }
     }
-  }
-  &__form-label {
-    color: #666;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
+
+    // reverse layout (image on left)
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--sm {
+      padding: 0.75rem;
+      min-height: 64px;
+    }
+
+    // body (text)
+    &-body {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    &-title {
+      margin: 0;
+      font-size: $journey-font-scale-title;
+      font-weight: 700;
+      line-height: 1.2;
+      color: inherit;
+      word-break: break-word;
+    }
+    &-excerpt {
+      margin: 0;
+      font-size: $journey-font-scale-excerpt;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.88);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    &-meta {
+      margin-top: auto;
+      font-size: $journey-meta-size;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      time { font-style: normal; color: inherit; }
+    }
+    &-actions {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    // media block (image)
+    &-media {
+      flex: 0 0 $journey-media-width;
+      width: $journey-media-width;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.05);
+      aspect-ratio: $journey-media-aspect;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    // utility: no-media variant to avoid awkward spacing
+    &--no-media {
+      .journey__card-body {
+        padding-right: 0;
+      }
+    }
+  } // end &__card
+
+  // ---------- Responsive behavior ----------
+  @include respond(tab-port) {
+    padding: 2.25rem 0;
+
+    &__cards-container {
+      gap: $journey-gap-mobile;
+    }
+
+    .journey__card {
+      flex-direction: column; // stack text then media
+      align-items: stretch;
+
+      &--reverse {
+        flex-direction: column;
+      }
+
+      &-media {
+        width: 100%;
+        flex: 0 0 auto;
+        aspect-ratio: $journey-media-aspect;
+        margin-top: 0.6rem;
+      }
+
+      &-excerpt {
+        -webkit-line-clamp: 4;
+      }
+    }
+  } // end respond(tab-port)
+
+  // ---------- Optional helpers ----------
+  &__year-divider {
     font-weight: 700;
-    margin-bottom: 1rem;
-    display: block;
-    text-align: left;
+    padding: 0.5rem 0;
+    opacity: 0.9;
+    color: rgba(255,255,255,0.85);
   }
-  &__form-input {
-    color: #333;
+
+  &__empty {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
     padding: 2rem;
-    width: 100%;
-    border: 1px solid rgb(235, 235, 235);
-    font-size: 1.6rem;
-    letter-spacing: 0px;
-    background: rgba(rgb(240, 240, 240), 1);
-    border-radius: $commonBorderRadius;
-    font-weight: 600;
-    /* Code for Modern Browsers */
-    &::placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for WebKit, Blink, Edge */
-    &::-webkit-input-placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Internet Explorer 10-11 */
-    &:-ms-input-placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Microsoft Edge */
-    &::-ms-input-placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Mozilla Firefox 4 to 18 */
-    &:-moz-placeholder {
-      opacity: 1;
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Mozilla Firefox 19+ */
-    &::-moz-placeholder {
-      opacity: 1;
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
+    border-radius: 8px;
+    background: rgba(255,255,255,0.02);
   }
-  &__btn {
-    width: 30%;
-
-    padding: 2rem 4rem;
-    font-size: 1.6rem;
-    @include respond(phone) {
-      width: 100%;
-    }
-  }
-}
+} // end .journey
