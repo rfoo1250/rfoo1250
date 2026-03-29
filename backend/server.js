@@ -9,6 +9,28 @@ const helmet     = require('helmet');
 const nodemailer = require('nodemailer');
 const validator  = require('validator');
 
+// Fail fast if any required env var is missing
+const REQUIRED_ENV = [
+  'SMTP_HOST', 'SMTP_PORT', 'SMTP_SECURE', 'SMTP_USER', 'SMTP_PASS',
+  'CONTACT_TO_EMAIL', 'ALLOWED_ORIGIN',
+];
+const missing = REQUIRED_ENV.filter(k => !process.env[k]);
+if (missing.length) {
+  console.error('Missing env vars:', missing.join(', '));
+  process.exit(1);
+}
+
+// Create transporter once at startup
+const transporter = nodemailer.createTransport({
+  host:   process.env.SMTP_HOST,
+  port:   parseInt(process.env.SMTP_PORT, 10),
+  secure: process.env.SMTP_SECURE === 'true',
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
+
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
@@ -62,16 +84,6 @@ app.post('/contact', contactLimiter, async (req, res) => {
     return res.status(400).json({ error: 'Message must be 1–2000 characters.' });
   }
 
-  const transporter = nodemailer.createTransport({
-    host:   process.env.SMTP_HOST,
-    port:   parseInt(process.env.SMTP_PORT, 10),
-    secure: process.env.SMTP_SECURE === 'true',
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
-
   try {
     await transporter.sendMail({
       from:    `"Portfolio Contact" <${process.env.SMTP_USER}>`,
@@ -82,7 +94,7 @@ app.post('/contact', contactLimiter, async (req, res) => {
     });
     res.json({ success: true, message: 'Your message has been sent!' });
   } catch (err) {
-    console.error('Mail error:', err.message);
+    console.error('Mail error:', err);
     res.status(500).json({ error: 'Failed to send message. Please try again later.' });
   }
 });
