@@ -86,10 +86,10 @@ app.post('/contact', contactLimiter, async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from:    `"Portfolio Contact" <${process.env.SMTP_USER}>`,
+      from:    `"${cleanName}" <${process.env.SMTP_USER}>`,
       to:      process.env.CONTACT_TO_EMAIL,
       replyTo: cleanEmail,
-      subject: `Portfolio contact from ${cleanName}`,
+      subject: `Portfolio Contact - ${cleanName}`,
       text:    `Name: ${cleanName}\nEmail: ${cleanEmail}\n\nMessage:\n${cleanMessage}`,
     });
     res.json({ success: true, message: 'Your message has been sent!' });
