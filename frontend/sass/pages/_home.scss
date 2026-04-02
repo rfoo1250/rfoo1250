@@ -298,8 +298,8 @@
 }
 
 // ---------- Variables (tweak as needed) ----------
-$journey-gap: 2rem;
-$journey-card-padding: 1.25rem;
+$journey-gap: 3.5rem;
+$journey-card-padding: 3rem;
 $journey-card-radius: 12px;
 $journey-card-bg: rgba(255,255,255,0.9);
 $journey-card-shadow: 0 6px 18px rgba(0,0,0,0.10);
@@ -362,7 +362,7 @@ $journey-meta-size: 1.4rem;
     text-decoration: none;
     transition: transform $journey-transition, box-shadow $journey-transition,
       background $journey-transition;
-    min-height: 88px;
+    min-height: 15rem;
 
     // clickable whole-card variant
     &--link {
