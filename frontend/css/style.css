@@ -534,12 +534,9 @@ textarea {
   margin-bottom: 1.25rem;
 }
 .journey__cards-container {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background: white;
   padding: 4rem;
   margin-top: 6rem;
-  max-width: 80rem;
-  width: 95%;
+  width: 80vw;
   border-radius: 5px;
   margin: 5rem auto 0 auto;
   display: grid;
@@ -556,7 +553,7 @@ textarea {
   flex-direction: row;
   align-items: stretch;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.9);
   padding: 1.25rem;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
@@ -593,17 +590,17 @@ textarea {
 }
 .journey__card-title {
   margin: 0;
-  font-size: 1.06rem;
+  font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.2;
-  color: inherit;
+  color: #333;
   word-break: break-word;
 }
 .journey__card-excerpt {
   margin: 0;
-  font-size: 0.96rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.8rem;
+  line-height: 1.7;
+  color: grey;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -612,8 +609,8 @@ textarea {
 }
 .journey__card-meta {
   margin-top: auto;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.4rem;
+  color: #999;
   display: flex;
   gap: 0.5rem;
   align-items: center;

@@ -301,15 +301,15 @@
 $journey-gap: 2rem;
 $journey-card-padding: 1.25rem;
 $journey-card-radius: 12px;
-$journey-card-bg: rgba(255,255,255,0.03);
+$journey-card-bg: rgba(255,255,255,0.9);
 $journey-card-shadow: 0 6px 18px rgba(0,0,0,0.10);
 $journey-media-width: 180px;
 $journey-media-aspect: math.div(16, 9);
 $journey-transition: 160ms ease;
 $journey-gap-mobile: 1rem;
-$journey-font-scale-title: 1.06rem;
-$journey-font-scale-excerpt: 0.96rem;
-$journey-meta-size: 0.85rem;
+$journey-font-scale-title: 2.2rem;
+$journey-font-scale-excerpt: 1.8rem;
+$journey-meta-size: 1.4rem;
 
 // ---------- Journey section with dynamic background ----------
 .journey {
@@ -331,13 +331,11 @@ $journey-meta-size: 0.85rem;
 
   // ---------- Cards container ----------
   &__cards-container {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: rgba(#fff, 2);
+    // background: rgba(#fff, 2);
     // background: rgba(255, 255, 255, 0.02); // subtle card surface over bg
     padding: 4rem;
     margin-top: 6rem;
-    max-width: 80rem;
-    width: 95%;
+    width: 80vw;
     border-radius: $commonBorderRadius;
     margin: 5rem auto 0 auto;
 
@@ -406,14 +404,14 @@ $journey-meta-size: 0.85rem;
       font-size: $journey-font-scale-title;
       font-weight: 700;
       line-height: 1.2;
-      color: inherit;
+      color: #333;
       word-break: break-word;
     }
     &-excerpt {
       margin: 0;
       font-size: $journey-font-scale-excerpt;
-      line-height: 1.45;
-      color: rgba(255,255,255,0.88);
+      line-height: 1.7;
+      color: grey;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       line-clamp: 3;
@@ -423,7 +421,7 @@ $journey-meta-size: 0.85rem;
     &-meta {
       margin-top: auto;
       font-size: $journey-meta-size;
-      color: rgba(255,255,255,0.65);
+      color: #999;
       display: flex;
       gap: 0.5rem;
       align-items: center;
