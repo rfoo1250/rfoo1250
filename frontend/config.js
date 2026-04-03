@@ -8,8 +8,8 @@ const CONFIG = {
   emailDomain: 'asu.edu',
 
   // Journey data source
-  journeyJsonPath: './data/json/journey.json',
+  journeyJsonPath: './frontend/data/json/journey.json',
 
   // Publications data source
-  publicationsJsonPath: './data/json/publications.json',
+  publicationsJsonPath: './frontend/data/json/publications.json',
 };
