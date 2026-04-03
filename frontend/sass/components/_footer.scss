@@ -57,23 +57,34 @@
   }
 
   &__icon {
-    display: inline-flex; // inline-flex so it flows with text if needed
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: $icon-size; // uniform visual box
-    width: $icon-size; // optional: make square box
-    flex: 0 0 $icon-size; // don't grow/shrink
-    // optional visual alignment tweaks:
+    height: $icon-size;
+    width: $icon-size;
+    flex: 0 0 $icon-size;
     vertical-align: middle;
+    transition: transform 200ms ease;
+
+    img, svg {
+      transition: filter 200ms ease, transform 200ms ease;
+    }
+
+    &:hover img,
+    &:hover svg {
+      transform: scale(1.25);
+      // brightness(0) → black, then colorize to $themeClrPrimary (#3EB489)
+      filter: brightness(0) saturate(100%) invert(62%) sepia(40%) saturate(700%) hue-rotate(116deg);
+    }
   }
 
   &__icon img,
   &__icon svg {
-    display: block; // removes descender whitespace
-    max-height: 100%; // preserve aspect ratio, fill height
+    display: block;
+    max-height: 100%;
     max-width: 100%;
     width: auto;
-    height: auto; // will be constrained by max-height
+    height: auto;
   }
 
   &__lower {
