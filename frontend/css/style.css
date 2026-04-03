@@ -309,6 +309,26 @@ textarea {
 .home-hero__cta {
   margin-top: 5rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.home-hero__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.home-hero__social-link img {
+  display: block;
+  width: 100%;
+  filter: brightness(0) invert(1);
+}
+.home-hero__social-link:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
 }
 
 .about {
