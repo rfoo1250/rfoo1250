@@ -201,6 +201,63 @@ if (document.readyState === "loading") {
 }
 
 // ----------------------------------------------------------------------
+// Publications injection script
+// ----------------------------------------------------------------------
+
+async function loadAndRenderPublications() {
+	const container = document.getElementById("publicationsList");
+	if (!container) return;
+
+	let pubs = [];
+	try {
+		const resp = await fetch(CONFIG.publicationsJsonPath, { cache: "no-cache" });
+		if (resp.ok) pubs = await resp.json();
+	} catch (e) {
+		return;
+	}
+
+	container.innerHTML = "";
+
+	for (let i = 0; i < pubs.length; i++) {
+		const pub = pubs[i];
+		const li = document.createElement("li");
+		li.className = "publications-list__item";
+
+		// Bold "Foo, R. H." in the authors string
+		const authorsHtml = pub.authors
+			? pub.authors.replace(/Foo, R\. H\./g, "<strong>Foo, R. H.</strong>")
+			: "";
+
+		// hanging indent works: first line flush, wrapped lines indented
+		let citation = `\u00a0${authorsHtml} (${pub.year}). ${pub.title}. <em>${pub.venue}</em>`;
+		if (pub.pages) citation += `, ${pub.pages}.`;
+
+		const text = document.createElement("p");
+		text.className = "publications-list__citation";
+		text.innerHTML = citation;
+		li.appendChild(text);
+
+		if (pub.doi) {
+			const link = document.createElement("a");
+			link.href = pub.doi;
+			link.target = "_blank";
+			link.rel = "noopener noreferrer";
+			link.className = "publications-list__doi";
+			link.textContent = pub.doi;
+			li.appendChild(link);
+		}
+
+		container.appendChild(li);
+	}
+}
+
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", loadAndRenderPublications);
+} else {
+	loadAndRenderPublications();
+}
+
+// ----------------------------------------------------------------------
 // Email obfuscation — keep address out of static HTML
 // ----------------------------------------------------------------------
 ;(function () {
