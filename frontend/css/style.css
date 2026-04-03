@@ -538,6 +538,7 @@ textarea {
   padding: 4rem;
   margin-top: 6rem;
   width: 80vw;
+  max-width: 100%;
   border-radius: 5px;
   margin: 5rem auto 0 auto;
   display: grid;
