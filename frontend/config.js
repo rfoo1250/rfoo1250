@@ -9,4 +9,7 @@ const CONFIG = {
 
   // Journey data source
   journeyJsonPath: './data/json/journey.json',
+
+  // Publications data source
+  publicationsJsonPath: './data/json/publications.json',
 };
