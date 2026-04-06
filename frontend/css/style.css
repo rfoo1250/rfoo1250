@@ -550,7 +550,7 @@ textarea {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 .hobbies__item:hover .hobbies__item-img {
-  opacity: 0.2;
+  opacity: 0.25;
 }
 .hobbies__item-text {
   position: relative;
