@@ -1,32 +1,193 @@
 [
+    
     {
-        "id": "proj-launch",
-        "title": "Project Launch — June 2024",
-        "excerpt": "Launched a small game prototype exploring physics-based puzzles. Built with Phaser and React — learned about optimization and art pipelines.",
-        "date": "2024-06-12",
-        "meta": "Los Angeles · Prototype",
-        "image": "assets/jpeg/project-mockup-example.jpeg",
-        "imageAlt": "Screenshot of project launch",
-        "url": "https://example.com/article-1"
-    },
-    {
-        "id": "graduation",
-        "title": "Graduation Ceremony",
-        "excerpt": "Graduated with a degree in Computer Science. Highlights included my capstone on web accessibility and a summer internship.",
-        "date": "2023-05-15",
-        "meta": null,
-        "image": "assets/jpeg/graduation-photo.jpeg",
-        "imageAlt": "Graduation photo",
-        "url": "./journey/graduation.html"
-    },
-    {
-        "id": "volunteer",
-        "title": "Volunteer Work — Food Bank",
-        "excerpt": "Volunteered weekly — learned logistics, teamwork, and community outreach.",
-        "date": "2022-11",
+        "id": "photo-quick-sorter-project",
+        "title": "Small project for Quick Sorting your Photos",
+        "excerpt": "I have yaers of accumulated photos on my phone, and I wanted to build a simple project that can help me quickly sort them to organized files, labelling them by year and place. So I built a simple project called Photo Quick Sorter that takes in a folder of photos and allows you to quickly sort through them by keybinds or buttons.",
+        "date": "2026-03-29",
         "meta": null,
         "image": null,
         "imageAlt": null,
+        "url": "https://github.com/rfoo1250/photo-quick-sorter"
+    },
+    {
+        "id": "safename-project",
+        "title": "Small project called SafeName",
+        "excerpt": "I like to save papers with their actual titles, but sometimes it will have characters that are not allowed in file names. So I built a simple project called SafeName that takes in a string and replaces all the characters that are not allowed in file names with underscores.",
+        "date": "2026-03-14",
+        "meta": null,
+        "image": null,
+        "imageAlt": null,
+        "url": "https://github.com/rfoo1250/safename"
+    },
+    {
+        "id": "data-viz-project",
+        "title": "The AI Boom or the Human Bust? — Data Visualization Project",
+        "excerpt": "Built a D3.js scrollytelling experience exploring AI’s dual impact on global growth and job disruption, integrating multiple coordinated visualizations with smooth interactions and narrative-driven design.",
+        "date": "2025-12-03",
+        "meta": "Arizona State University · Tempe",
+        "image": "assets/jpeg/data-viz-project.jfif",
+        "imageAlt": "Data viz project photo",
+        "url": "https://www.linkedin.com/posts/vishallaksh_our-team-just-wrapped-up-our-final-project-ugcPost-7402091620130574338-NaPz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeWKOIBIqJuyIIs9l4ExY-S4RGpkbPdvFM"
+    },
+    {
+        "id": "cikm-25-paper-accepted",
+        "title": "Our Paper Accepted into CIKM '25",
+        "excerpt": "Grateful to be part of a research team whose paper was accepted at CIKM '25, where I contributed to developing the system behind the project and gained valuable experience turning research ideas into working applications.",
+        "date": "2025-10-09",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "https://doi.org/10.1145/3746252.3761487"
+    },
+    {
+        "id": "panopticon-ai-project",
+        "title": "Contributed to Panopticon AI!",
+        "excerpt": "Grateful for the opportunity to contribute to Panopticon AI, an open-source project, where I worked on improving system stability, resolving issues, and gaining hands-on experience with a real-world codebase and its architecture.",
+        "date": "2025-09-09",
+        "meta": null,
+        "image": null,
+        "imageAlt": null,
+        "url": "https://github.com/Panopticon-AI-team/panopticon"
+    },
+    {
+        "id": "CSE472-grader-hired",
+        "title": "Starting as a Grader for CSE472!",
+        "excerpt": "I am happy to share that I am starting as a grader for CSE472: Social Media Mining this semester! I will be responsible for grading assignments, providing feedback, and supporting students in their learning journey.",
+        "date": "2025-08-21",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/CSE472_FA24_Syllabus.pdf"
+    },
+    {
+        "id": "entering-dmml",
+        "title": "Entering DMML as a Research Aide!",
+        "excerpt": "After this summer, I am happy to share that I will be joining the Data Mining and Machine Learning Lab (DMML) at ASU as a Research Aide!",
+        "date": "2025-06-23",
+        "meta": "Arizona State University · Tempe",
+        "image": "../../assets/jpeg/dmml-logo.jpg",
+        "imageAlt": "DMML logo",
         "url": null
+    },
+    {
+        "id": "deans-list-spring-2025",
+        "title": "Dean's List — Spring 2025",
+        "excerpt": "Named to the Dean's List for academic excellence during the Spring 2025 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2025-06-02",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/Dean_List_for_S25.pdf"
+    },
+    {
+        "id": "cs-capstone-project",
+        "title": "IntegrateQuad: AI Pathway Engine for Foreign-Trained Physicians",
+        "excerpt": "Led a Scrum-based team to build a full-stack recommendation engine helping foreign-trained physicians navigate employment pathways in Canada, using React Native, Django, PostgreSQL, and a custom scoring algorithm to deliver data-driven career insights.",
+        "date": "2025-06-07",
+        "meta": "Arizona State University · Tempe",
+        "image": "",
+        "imageAlt": "CS Capstone photo of me with the team poster",
+        "url": "https://www.linkedin.com/posts/saadkhanca_productownership-internshipsuccess-immigrationinnovation-activity-7337263605714690048-Ywh-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeWKOIBIqJuyIIs9l4ExY-S4RGpkbPdvFM"
+    },
+    {
+        "id": "volunteering-dmml",
+        "title": "Volunteering at DMML!",
+        "excerpt": "Excited to volunteer at the Data Mining and Machine Learning Lab (DMML) at ASU! Tasked to work on geospatial data analysis and visualization projects using Google Earth Engine.",
+        "date": "2025-02-01",
+        "meta": null,
+        "image": "../../assets/png/gee_screenshot.PNG",
+        "imageAlt": "A screenshot of a geospatial data visualization project in Google Earth Engine",
+        "url": null
+    },
+    {
+        "id": "deans-list-fall-2024",
+        "title": "Dean's List — Fall 2024",
+        "excerpt": "Named to the Dean's List for academic excellence during the Fall 2024 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2024-12-29",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/Dean_List_for_F24.pdf"
+    },
+    {
+        "id": "CSE310-ugta-hired",
+        "title": "Starting as an UGTA for CSE310!",
+        "excerpt": "I am happy to share that I am switching to the role of Undergraduate Teaching Assistant for CSE310: Data Structures and Algorithms this semester! I will be responsible for reviewing exams, providing feedback, and supporting students in their learning journey.",
+        "date": "2024-05-08",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/CSE310_SU24_Syllabus.pdf"
+    },
+    {
+        "id": "CSE310-grader-hired",
+        "title": "Starting as a Grader for CSE310!",
+        "excerpt": "I am happy to share that I am starting as a grader for CSE310: Data Structures and Algorithms this semester! I will be responsible for grading assignments, providing feedback, and supporting students in their learning journey.",
+        "date": "2024-01-08",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/CSE310_FA23_75165_Syllabus.pdf"
+    },
+    {
+        "id": "deans-list-fall-2023",
+        "title": "Dean's List — Fall 2023",
+        "excerpt": "Named to the Dean's List for academic excellence during the Fall 2023 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2023-12-29",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/Dean_List_for_F23.pdf"
+    },
+    {
+        "id": "lss-hired",
+        "title": "Started My First Job as a Technology Support Assistant!",
+        "excerpt": "Began my first professional role at ASU Learning Support Services as a Level 1 Technology Support Assistant, supporting classroom technology and students while developing strong communication, troubleshooting, and customer service skills.",
+        "date": "2023-10-01",
+        "meta": "Arizona State University · Tempe",
+        "image": "../../assets/png/LSS.PNG",
+        "imageAlt": "LSS logo",
+        "url": null
+    },
+    {
+        "id": "volunteering",
+        "title": "International Students Support Volunteer",
+        "excerpt": "Volunteered with ASU’s International Students and Scholars Center, supporting international students through event coordination, welcome initiatives, and multicultural engagement while demonstrating strong teamwork, reliability, and communication skills.",
+        "date": "2023-09-11",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/jpeg/data-viz-project.jpg"
+    },
+    {
+        "id": "deans-list-spring-2023",
+        "title": "Dean's List — Spring 2023",
+        "excerpt": "Named to the Dean's List for academic excellence during the Spring 2023 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2023-05-15",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/Dean_List_for_S23.pdf"
+    },
+    {
+        "id": "hackathon-win",
+        "title": "Devils Invent: DASSH Hackathon Winner",
+        "excerpt": "Won a $10,000 prize at ASU’s 30-hour Devils Invent hackathon by developing an AI-powered emergency response system to improve public safety and assist first responders during potential threats.",
+        "date": "2023-03-01",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "https://news.asu.edu/20230301-solutions-asu-students-win-10k-prize-30hour-hackathon"
+    },
+    {
+        "id": "deans-list-fall-2022",
+        "title": "Dean's List — Fall 2022",
+        "excerpt": "Named to the Dean's List for academic excellence during the Fall 2022 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2022-12-29",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "../../assets/pdf/Dean_List_for_F22.pdf"
     }
 ]
