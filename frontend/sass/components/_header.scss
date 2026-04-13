@@ -21,10 +21,11 @@
     align-items: center;
     cursor: pointer;
     color: #333;
-    transition: color .3s;
+    transition: color .3s, transform .2s ease;
 
     &:hover {
       color: $themeClrPrimary;
+      transform: scale(1.15);
     }
   }
   &__logo-img-cont {
