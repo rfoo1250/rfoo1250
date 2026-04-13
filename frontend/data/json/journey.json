@@ -26,7 +26,7 @@
         "excerpt": "Built a D3.js scrollytelling experience exploring AI’s dual impact on global growth and job disruption, integrating multiple coordinated visualizations with smooth interactions and narrative-driven design.",
         "date": "2025-12-03",
         "meta": "Arizona State University · Tempe",
-        "image": "assets/jpeg/data-viz-project.jfif",
+        "image": "frontend/assets/jpeg/data-viz-project.jpg",
         "imageAlt": "Data viz project photo",
         "url": "https://www.linkedin.com/posts/vishallaksh_our-team-just-wrapped-up-our-final-project-ugcPost-7402091620130574338-NaPz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeWKOIBIqJuyIIs9l4ExY-S4RGpkbPdvFM"
     },
@@ -58,7 +58,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/CSE472_FA24_Syllabus.pdf"
+        "url": "frontend/assets/pdf/CSE472_FA24_Syllabus.pdf"
     },
     {
         "id": "entering-dmml",
@@ -66,7 +66,7 @@
         "excerpt": "After this summer, I am happy to share that I will be joining the Data Mining and Machine Learning Lab (DMML) at ASU as a Research Aide!",
         "date": "2025-06-23",
         "meta": "Arizona State University · Tempe",
-        "image": "../../assets/jpeg/dmml-logo.jpg",
+        "image": "frontend/assets/jpeg/dmml-logo.jpg",
         "imageAlt": "DMML logo",
         "url": null
     },
@@ -78,7 +78,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/Dean_List_for_S25.pdf"
+        "url": "frontend/assets/pdf/Dean_List_for_S25.pdf"
     },
     {
         "id": "cs-capstone-project",
@@ -96,7 +96,7 @@
         "excerpt": "Excited to volunteer at the Data Mining and Machine Learning Lab (DMML) at ASU! Tasked to work on geospatial data analysis and visualization projects using Google Earth Engine.",
         "date": "2025-02-01",
         "meta": null,
-        "image": "../../assets/png/gee_screenshot.PNG",
+        "image": "frontend/assets/png/gee_screenshot.PNG",
         "imageAlt": "A screenshot of a geospatial data visualization project in Google Earth Engine",
         "url": null
     },
@@ -108,7 +108,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/Dean_List_for_F24.pdf"
+        "url": "frontend/assets/pdf/Dean_List_for_F24.pdf"
     },
     {
         "id": "CSE310-ugta-hired",
@@ -118,7 +118,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/CSE310_SU24_Syllabus.pdf"
+        "url": "frontend/assets/pdf/CSE310_SU24_Syllabus.pdf"
     },
     {
         "id": "CSE310-grader-hired",
@@ -128,7 +128,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/CSE310_FA23_75165_Syllabus.pdf"
+        "url": "frontend/assets/pdf/CSE310_FA23_75165_Syllabus.pdf"
     },
     {
         "id": "deans-list-fall-2023",
@@ -138,7 +138,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/Dean_List_for_F23.pdf"
+        "url": "frontend/assets/pdf/Dean_List_for_F23.pdf"
     },
     {
         "id": "lss-hired",
@@ -146,7 +146,7 @@
         "excerpt": "Began my first professional role at ASU Learning Support Services as a Level 1 Technology Support Assistant, supporting classroom technology and students while developing strong communication, troubleshooting, and customer service skills.",
         "date": "2023-10-01",
         "meta": "Arizona State University · Tempe",
-        "image": "../../assets/png/LSS.PNG",
+        "image": "frontend/assets/png/LSS.PNG",
         "imageAlt": "LSS logo",
         "url": null
     },
@@ -158,7 +158,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/jpeg/data-viz-project.jpg"
+        "url": "frontend/assets/jpeg/data-viz-project.jpg"
     },
     {
         "id": "deans-list-spring-2023",
@@ -168,7 +168,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/Dean_List_for_S23.pdf"
+        "url": "frontend/assets/pdf/Dean_List_for_S23.pdf"
     },
     {
         "id": "hackathon-win",
@@ -188,6 +188,6 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "../../assets/pdf/Dean_List_for_F22.pdf"
+        "url": "frontend/assets/pdf/Dean_List_for_F22.pdf"
     }
 ]
