@@ -1,3 +1,6 @@
+// Wake up the Render backend as soon as the page loads
+fetch(CONFIG.pingEndpoint, { method: 'GET' }).catch(() => {});
+
 // ---
 const hamMenuBtn = document.querySelector('.header__main-ham-menu-cont')
 const smallMenu = document.querySelector('.header__sm-menu')

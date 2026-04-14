@@ -40,7 +40,7 @@ app.use(helmet());
 // Only accept requests from the portfolio origin
 app.use(cors({
   origin: process.env.ALLOWED_ORIGIN,
-  methods: ['POST', 'OPTIONS'],
+  methods: ['GET', 'POST', 'OPTIONS'],
 }));
 
 // Cap payload size to prevent abuse
@@ -97,6 +97,10 @@ app.post('/contact', contactLimiter, async (req, res) => {
     console.error('Mail error:', err);
     res.status(500).json({ error: 'Failed to send message. Please try again later.' });
   }
+});
+
+app.get('/ping', (_req, res) => {
+  res.json({ ok: true });
 });
 
 app.listen(PORT, () => {
