@@ -83,10 +83,10 @@
     {
         "id": "cs-capstone-project",
         "title": "IntegrateQuad: AI Pathway Engine for Foreign-Trained Physicians",
-        "excerpt": "Led a Scrum-based team to build a full-stack recommendation engine helping foreign-trained physicians navigate employment pathways in Canada, using React Native, Django, PostgreSQL, and a custom scoring algorithm to deliver data-driven career insights.",
+        "excerpt": "Led a Scrum-based team to build a full-stack recommendation engine helping immigrants navigate employment pathways in Canada, using React Native, Django, PostgreSQL, and a custom scoring algorithm to deliver data-driven career insights.",
         "date": "2025-06-07",
         "meta": "Arizona State University · Tempe",
-        "image": "",
+        "image": "frontend/assets/jpeg/capstone_prez.JPG",
         "imageAlt": "CS Capstone photo of me with the team poster",
         "url": "https://www.linkedin.com/posts/saadkhanca_productownership-internshipsuccess-immigrationinnovation-activity-7337263605714690048-Ywh-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeWKOIBIqJuyIIs9l4ExY-S4RGpkbPdvFM"
     },
@@ -158,7 +158,7 @@
         "meta": "Arizona State University · Tempe",
         "image": null,
         "imageAlt": null,
-        "url": "frontend/assets/jpeg/data-viz-project.jpg"
+        "url": "frontend/assets/pdf/volunteering_rec_letter.pdf"
     },
     {
         "id": "deans-list-spring-2023",
