@@ -36,7 +36,8 @@ for (let i = 0; i < headerSmallMenuLinks.length; i++) {
 // ---
 const headerLogoConatiner = document.querySelector('.header__logo-container')
 
-headerLogoConatiner.addEventListener('click', () => {
+headerLogoConatiner.addEventListener('click', (e) => {
+	if (e.target.closest('.header__version-toggle')) return;
 	location.href = 'index.html'
 })
 

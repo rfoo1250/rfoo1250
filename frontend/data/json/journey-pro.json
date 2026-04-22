@@ -1,0 +1,152 @@
+[
+    {
+        "id": "cikm-25-paper-accepted",
+        "title": "Research Paper Published at CIKM 2025",
+        "excerpt": "Co-authored a paper accepted at CIKM 2025, one of the top venues in data mining and information retrieval. Contributed to building the system behind the research, translating ideas from paper to working application.",
+        "date": "2025-10-09",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "https://doi.org/10.1145/3746252.3761487"
+    },
+    {
+        "id": "cs-capstone-project",
+        "title": "IntegrateQuad: AI Pathway Engine for Foreign-Trained Physicians",
+        "excerpt": "Led a Scrum-based team to build a full-stack recommendation engine helping foreign-trained physicians navigate employment pathways in Canada. Built with React Native, Django, and PostgreSQL, with a custom scoring algorithm to deliver personalized career guidance.",
+        "date": "2025-06-07",
+        "meta": "Arizona State University · Tempe",
+        "image": "frontend/assets/jpeg/capstone_prez.JPG",
+        "imageAlt": "CS Capstone photo of me with the team poster",
+        "url": "https://www.linkedin.com/posts/saadkhanca_productownership-internshipsuccess-immigrationinnovation-activity-7337263605714690048-Ywh-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeWKOIBIqJuyIIs9l4ExY-S4RGpkbPdvFM"
+    },
+    {
+        "id": "data-viz-project",
+        "title": "The AI Boom or the Human Bust? — Data Visualization Project",
+        "excerpt": "Built a D3.js scrollytelling experience exploring AI's dual impact on economic growth and workforce disruption. Integrated multiple coordinated visualizations with smooth transitions and a narrative-driven structure.",
+        "date": "2025-12-03",
+        "meta": "Arizona State University · Tempe",
+        "image": "frontend/assets/jpeg/data-viz-project.jpg",
+        "imageAlt": "Data viz project photo",
+        "url": "https://www.linkedin.com/posts/vishallaksh_our-team-just-wrapped-up-our-final-project-ugcPost-7402091620130574338-NaPz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeWKOIBIqJuyIIs9l4ExY-S4RGpkbPdvFM"
+    },
+    {
+        "id": "panopticon-ai-project",
+        "title": "Open-Source Contributor — Panopticon AI",
+        "excerpt": "Contributed to Panopticon AI, an open-source defense simulation platform, by improving system stability and resolving technical issues. Gained hands-on experience navigating and contributing to a production codebase.",
+        "date": "2025-09-09",
+        "meta": null,
+        "image": null,
+        "imageAlt": null,
+        "url": "https://github.com/Panopticon-AI-team/panopticon"
+    },
+    {
+        "id": "CSE472-grader-hired",
+        "title": "Course Grader — CSE472: Social Media Mining",
+        "excerpt": "Served as a course grader for CSE472: Social Media Mining at ASU, responsible for evaluating student assignments and delivering constructive feedback.",
+        "date": "2025-08-21",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/CSE472_FA24_Syllabus.pdf"
+    },
+    {
+        "id": "entering-dmml",
+        "title": "Research Aide — Data Mining and Machine Learning Lab (DMML)",
+        "excerpt": "Joined the Data Mining and Machine Learning Lab at Arizona State University as a Research Aide, working alongside faculty and graduate researchers on applied machine learning projects.",
+        "date": "2025-06-23",
+        "meta": "Arizona State University · Tempe",
+        "image": "frontend/assets/jpeg/dmml-logo.jpg",
+        "imageAlt": "DMML logo",
+        "url": null
+    },
+    {
+        "id": "deans-list-spring-2025",
+        "title": "Dean's List — Spring 2025",
+        "excerpt": "Named to the Dean's List for academic excellence during the Spring 2025 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2025-06-02",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/Dean_List_for_S25.pdf"
+    },
+    {
+        "id": "CSE310-ugta-hired",
+        "title": "Undergraduate Teaching Assistant — CSE310: Data Structures and Algorithms",
+        "excerpt": "Served as an Undergraduate Teaching Assistant for CSE310: Data Structures and Algorithms at ASU, contributing to exam review, providing student feedback, and supporting course instruction.",
+        "date": "2024-05-08",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/CSE310_SU24_Syllabus.pdf"
+    },
+    {
+        "id": "volunteering-dmml",
+        "title": "Research Volunteer — Data Mining and Machine Learning Lab (DMML)",
+        "excerpt": "Contributed to geospatial data analysis and visualization projects at DMML using Google Earth Engine, supporting ongoing research efforts at the lab.",
+        "date": "2025-02-01",
+        "meta": "Arizona State University · Tempe",
+        "image": "frontend/assets/png/gee_screenshot.PNG",
+        "imageAlt": "A screenshot of a geospatial data visualization project in Google Earth Engine",
+        "url": null
+    },
+    {
+        "id": "deans-list-fall-2024",
+        "title": "Dean's List — Fall 2024",
+        "excerpt": "Named to the Dean's List for academic excellence during the Fall 2024 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2024-12-29",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/Dean_List_for_F24.pdf"
+    },
+    {
+        "id": "hackathon-win",
+        "title": "Devils Invent Hackathon — 1st Place, $10,000 Award",
+        "excerpt": "Developed an AI-powered emergency response system at ASU's 30-hour Devils Invent hackathon, placing first and earning a $10,000 prize. The project focused on improving public safety infrastructure and supporting first responders.",
+        "date": "2023-03-01",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "https://news.asu.edu/20230301-solutions-asu-students-win-10k-prize-30hour-hackathon"
+    },
+    {
+        "id": "deans-list-fall-2023",
+        "title": "Dean's List — Fall 2023",
+        "excerpt": "Named to the Dean's List for academic excellence during the Fall 2023 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2023-12-29",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/Dean_List_for_F23.pdf"
+    },
+    {
+        "id": "lss-hired",
+        "title": "Technology Support Assistant — ASU Learning Support Services",
+        "excerpt": "First professional role at ASU Learning Support Services, supporting classroom technology operations and providing technical assistance to students and faculty.",
+        "date": "2023-10-01",
+        "meta": "Arizona State University · Tempe",
+        "image": "frontend/assets/png/LSS.PNG",
+        "imageAlt": "LSS logo",
+        "url": null
+    },
+    {
+        "id": "deans-list-spring-2023",
+        "title": "Dean's List — Spring 2023",
+        "excerpt": "Named to the Dean's List for academic excellence during the Spring 2023 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2023-05-15",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/Dean_List_for_S23.pdf"
+    },
+    {
+        "id": "deans-list-fall-2022",
+        "title": "Dean's List — Fall 2022",
+        "excerpt": "Named to the Dean's List for academic excellence during the Fall 2022 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2022-12-29",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/Dean_List_for_F22.pdf"
+    }
+]
