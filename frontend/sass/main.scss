@@ -1,18 +1,18 @@
 // you only compile this code file
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
 
 
-@import 'base/base';
+@use 'base/base';
 
-@import 'abstracts/utilities';
+@use 'abstracts/utilities';
 
-@import 'pages/home';
+@use 'pages/home';
 
-@import 'components/header';
-@import 'components/footer';
-@import 'components/skills';
-@import 'components/mouse-scroll';
+@use 'components/header';
+@use 'components/footer';
+@use 'components/skills';
+@use 'components/mouse-scroll';
 
 
 

@@ -589,9 +589,8 @@ textarea {
 .contact__form-container {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background: white;
-  padding: 4rem;
-  margin-top: 6rem;
-  max-width: 80rem;
+  padding: 5rem 6rem;
+  max-width: 100rem;
   text-align: right;
   width: 95%;
   border-radius: 5px;
@@ -690,6 +689,9 @@ textarea {
 }
 .contact__honeypot {
   display: none;
+}
+.contact--light {
+  background: none;
 }
 
 .journey {
@@ -862,13 +864,15 @@ textarea {
 .header__content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem 5rem;
 }
 @media only screen and (max-width: 56.25em) {
   .header__content {
     padding: 0 2rem;
   }
+}
+.header__main {
+  margin-left: auto;
 }
 .header__logo-container {
   display: flex;
@@ -936,6 +940,76 @@ textarea {
     padding: 3rem 1.8rem;
     font-size: 1.5rem;
   }
+}
+.header__version-toggle {
+  position: relative;
+  padding: 0.55rem 1.4rem;
+  margin: auto 0 auto 1.5rem;
+  border: 2px solid #3EB489;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3EB489;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.2s ease;
+}
+.header__version-toggle:hover {
+  background: #3EB489;
+  color: #fff;
+  transform: scale(1.05);
+}
+.header__version-toggle[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.header__version-toggle[data-tooltip]:hover::after {
+  opacity: 1;
+}
+@media only screen and (max-width: 56.25em) {
+  .header__version-toggle {
+    font-size: 1.2rem;
+    padding: 0.45rem 1.1rem;
+    margin-left: 1rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .header__version-toggle {
+    display: none;
+  }
+}
+.header__sm-menu-version-toggle a {
+  display: block;
+  text-decoration: none;
+  padding: 2.5rem 3rem;
+  font-size: 1.6rem;
+  color: #3EB489;
+  text-align: right;
+  border-bottom: 1px solid #eee;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s, transform 0.2s ease;
+}
+.header__sm-menu-version-toggle a:hover {
+  color: rgb(46.320661157, 134.479338843, 102.3537190083);
+  transform: scale(1.08);
 }
 .header__main-ham-menu-cont {
   display: none;

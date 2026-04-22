@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 *,
 *::after,
 *::before {
@@ -13,17 +15,17 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem; // offset for fixed header
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     // width < 1200?
     font-size: 59%; //1 rem =
   }
 
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     // width < 900?
     font-size: 56%; //1 rem =
   }
 
-  @include respond(big-desktop) {
+  @include mixins.respond(big-desktop) {
     font-size: 65%; //1rem =
   }
 }

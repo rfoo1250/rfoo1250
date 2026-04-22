@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
 .header {
   position: fixed;
   width: 100%;
@@ -9,11 +13,14 @@
   &__content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 1rem 5rem;
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       padding: 0 2rem;
     }
+  }
+
+  &__main {
+    margin-left: auto;
   }
 
   &__logo-container {
@@ -24,7 +31,7 @@
     transition: color .3s, transform .2s ease;
 
     &:hover {
-      color: $themeClrPrimary;
+      color: variables.$themeClrPrimary;
       transform: scale(1.15);
     }
   }
@@ -34,9 +41,9 @@
     border-radius: 50px;
     overflow: hidden;
     margin-right: 1.5rem;
-    background: $themeClrPrimary;
+    background: variables.$themeClrPrimary;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       width: 4.5rem;
       height: 4.5rem;
       margin-right: 1.2rem;
@@ -57,7 +64,7 @@
   }
   &__links {
     display: flex;
-    @include respond(phone) {
+    @include mixins.respond(phone) {
       display: none;
     }
   }
@@ -72,12 +79,88 @@
     transition: color .3s, transform .2s ease;
 
     &:hover {
-      color: $themeClrPrimary;
+      color: variables.$themeClrPrimary;
       transform: scale(1.15);
     }
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       padding: 3rem 1.8rem;
       font-size: 1.5rem;
+    }
+  }
+
+  &__version-toggle {
+    position: relative;
+    padding: 0.55rem 1.4rem;
+    margin: auto 0 auto 1.5rem;
+    border: 2px solid variables.$themeClrPrimary;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: variables.$themeClrPrimary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    transition: background .2s, color .2s, transform .2s ease;
+
+    &:hover {
+      background: variables.$themeClrPrimary;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    &[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 0.8rem);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: none;
+      white-space: nowrap;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .15s ease;
+    }
+
+    &[data-tooltip]:hover::after {
+      opacity: 1;
+    }
+
+    @include mixins.respond(tab-port) {
+      font-size: 1.2rem;
+      padding: 0.45rem 1.1rem;
+      margin-left: 1rem;
+    }
+
+    @include mixins.respond(phone) {
+      display: none;
+    }
+  }
+
+  &__sm-menu-version-toggle {
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 2.5rem 3rem;
+      font-size: 1.6rem;
+      color: variables.$themeClrPrimary;
+      text-align: right;
+      border-bottom: 1px solid #eee;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: color .3s, transform .2s ease;
+
+      &:hover {
+        color: color.adjust(variables.$themeClrPrimary, $lightness: -12%);
+        transform: scale(1.08);
+      }
     }
   }
 
@@ -87,7 +170,7 @@
 
     padding: 2.2rem 0;
 
-    @include respond(phone) {
+    @include mixins.respond(phone) {
       display: block;
     }
   }
@@ -114,7 +197,7 @@
       visibility: hidden;
       opacity: 0;
    
-      @include respond(phone) {
+      @include mixins.respond(phone) {
         visibility: visible;
         opacity: 1;
       }
@@ -135,7 +218,7 @@
       transition: color .3s, transform .2s ease;
 
       &:hover {
-        color: $themeClrPrimary;
+        color: variables.$themeClrPrimary;
         transform: scale(1.08);
       }
     }
