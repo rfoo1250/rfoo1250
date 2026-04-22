@@ -176,8 +176,8 @@
         "excerpt": "Won a $10,000 prize at ASU’s 30-hour Devils Invent hackathon by developing an AI-powered emergency response system to improve public safety and assist first responders during potential threats.",
         "date": "2023-03-01",
         "meta": "Arizona State University · Tempe",
-        "image": null,
-        "imageAlt": null,
+        "image": "frontend/assets/jpeg/data-viz-project.jpg",
+        "imageAlt": "A photo of the team at the hackathon",
         "url": "https://news.asu.edu/20230301-solutions-asu-students-win-10k-prize-30hour-hackathon"
     },
     {
