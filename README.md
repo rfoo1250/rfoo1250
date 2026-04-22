@@ -33,7 +33,7 @@ New grad roles in **software engineering**, **backend/full-stack development**, 
 ---
 
 <p align="center">
-  <a href="https://rfoo1250.github.io/?version=pro">
+  <a href="http://rfoo1250.github.io/rfoo1250/?version=pro">
     <img src="https://img.shields.io/badge/Portfolio-111827?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio" />
   </a>
   <a href="https://www.linkedin.com/in/rui-heng-foo/">
