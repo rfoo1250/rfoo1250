@@ -4,7 +4,7 @@
   </a>
 </p>
 
-Master's student in Computer Science at **Arizona State University**, with experience in full-stack development and applied ML research. I've shipped real projects, contributed to peer-reviewed work (CIKM 2025), and TAed core CS courses — I like building things that are actually useful.
+Master's student in Computer Science at **Arizona State University**, with experience in full-stack development and applied ML research. I've shipped real projects, contributed to peer-reviewed work (CIKM 2025), and TAed core CS courses — I like building things that work... sometimes things for laughs.
 
 ---
 
@@ -33,8 +33,16 @@ New grad roles in **software engineering**, **backend/full-stack development**, 
 ---
 
 <p align="center">
-  <a href="https://rfoo1250.github.io">Portfolio</a> •
-  <a href="https://www.linkedin.com/in/rui-heng-foo/">LinkedIn</a> •
-  <a href="https://scholar.google.com/citations?user=5wa2slsAAAAJ&hl=en">Google Scholar</a> •
-  <a href="https://github.com/rfoo1250">GitHub</a>
+  <a href="https://rfoo1250.github.io/?version=pro">
+    <img src="https://img.shields.io/badge/Portfolio-111827?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio" />
+  </a>
+  <a href="https://www.linkedin.com/in/rui-heng-foo/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://scholar.google.com/citations?user=5wa2slsAAAAJ&hl=en">
+    <img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=for-the-badge&logo=googlescholar&logoColor=white" alt="Google Scholar" />
+  </a>
+  <a href="https://github.com/rfoo1250">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
 </p>
