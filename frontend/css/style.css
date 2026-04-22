@@ -883,7 +883,7 @@ textarea {
 }
 .header__logo-container:hover {
   color: #3EB489;
-  transform: scale(1.15);
+  transform: scale(1.08);
 }
 .header__logo-img-cont {
   width: 5rem;
@@ -933,7 +933,7 @@ textarea {
 }
 .header__link:hover {
   color: #3EB489;
-  transform: scale(1.15);
+  transform: scale(1.08);
 }
 @media only screen and (max-width: 56.25em) {
   .header__link {
@@ -958,7 +958,7 @@ textarea {
 .header__version-toggle:hover {
   background: #3EB489;
   color: #fff;
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 .header__version-toggle[data-tooltip]::after {
   content: attr(data-tooltip);
