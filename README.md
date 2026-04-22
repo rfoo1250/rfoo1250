@@ -42,7 +42,4 @@ New grad roles in **software engineering**, **backend/full-stack development**, 
   <a href="https://scholar.google.com/citations?user=5wa2slsAAAAJ&hl=en">
     <img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=for-the-badge&logo=googlescholar&logoColor=white" alt="Google Scholar" />
   </a>
-  <a href="https://github.com/rfoo1250">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
 </p>
