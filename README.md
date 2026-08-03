@@ -4,7 +4,7 @@
   </a>
 </p>
 
-Master's student in Computer Science at **Arizona State University**, with experience in full-stack development and applied ML research. I've shipped real projects, contributed to peer-reviewed work (CIKM 2025), and TAed core CS courses — I like building things that work... sometimes things for laughs.
+Master's graduate in Computer Science at **Arizona State University**, with experience in full-stack development and applied ML research. I've shipped real projects, contributed to peer-reviewed work (CIKM 2025), and TAed core CS courses. I like building things that work... sometimes things for laughs.
 
 ---
 
