@@ -205,6 +205,14 @@
   margin-top: 2rem;
   transition: box-shadow 200ms ease, transform 200ms ease;
 
+  @include mixins.respond(tab-port) {
+    height: 32rem;
+  }
+
+  @include mixins.respond(phone) {
+    height: 24rem;
+  }
+
   &:hover {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     transform: translateY(-2px);
@@ -336,6 +344,10 @@
     color: inherit;
     cursor: pointer;
     transition: transform 220ms ease, box-shadow 220ms ease;
+
+    @include mixins.respond(phone) {
+      padding: 1.5rem;
+    }
 
     &:hover {
       transform: translateY(-6px) scale(1.02);
@@ -492,14 +504,20 @@
 
 // ---------- Variables (tweak as needed) ----------
 $journey-gap: 3.5rem;
+// $journey-gap: 1rem;
 $journey-card-padding: 3rem;
+// $journey-card-padding: 1.5rem;
 $journey-card-radius: 12px;
 $journey-card-bg: rgba(255,255,255,0.9);
 $journey-card-shadow: 0 6px 18px rgba(0,0,0,0.10);
+$journey-container-width: 80vw;
+$journey-container-width-mobile: 90vw;
+$journey-container-padding: 4rem;
+$journey-container-padding-mobile: 1.5rem;
+$journey-container-top: 5rem;
 $journey-media-width: 180px;
 $journey-media-aspect: math.div(16, 9);
 $journey-transition: 160ms ease;
-$journey-gap-mobile: 1rem;
 $journey-font-scale-title: 2.2rem;
 $journey-font-scale-excerpt: 1.8rem;
 $journey-meta-size: 1.4rem;
@@ -524,21 +542,18 @@ $journey-meta-size: 1.4rem;
 
   // ---------- Cards container ----------
   &__cards-container {
-    // background: rgba(#fff, 2);
-    // background: rgba(255, 255, 255, 0.02); // subtle card surface over bg
-    padding: 4rem;
-    margin-top: 6rem;
-    width: 80vw;
+    padding: $journey-container-padding;
+    width: $journey-container-width;
     max-width: 100%;
     border-radius: variables.$commonBorderRadius;
-    margin: 5rem auto 0 auto;
-
+    margin: $journey-container-top auto 0 auto;
     display: grid;
     gap: $journey-gap;
 
     @include mixins.respond(phone) {
-      padding: 3rem;
-      gap: $journey-gap-mobile;
+      width: $journey-container-width-mobile;
+      padding: $journey-container-padding-mobile;
+      gap: $journey-gap;
     }
   }
 
@@ -581,7 +596,7 @@ $journey-meta-size: 1.4rem;
     }
 
     &--sm {
-      padding: 0.75rem;
+      padding: $journey-card-padding;
       min-height: 64px;
     }
 
@@ -642,8 +657,9 @@ $journey-meta-size: 1.4rem;
 
       img {
         display: block;
+        width: 100%;
         height: 100%;
-        width: auto;
+        object-fit: cover;
       }
     }
 
@@ -660,7 +676,7 @@ $journey-meta-size: 1.4rem;
     padding: 2.25rem 0;
 
     &__cards-container {
-      gap: $journey-gap-mobile;
+      gap: $journey-gap;
     }
 
     .journey__card {
@@ -684,6 +700,12 @@ $journey-meta-size: 1.4rem;
       }
     }
   } // end respond(tab-port)
+
+  @include mixins.respond(phone) {
+    .journey__card {
+      padding: $journey-card-padding;
+    }
+  }
 
   // ---------- Optional helpers ----------
   &__year-divider {

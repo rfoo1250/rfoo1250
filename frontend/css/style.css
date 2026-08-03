@@ -34,6 +34,7 @@ html {
 @media only screen and (max-width: 56.25em) {
   html {
     font-size: 56%;
+    scroll-padding-top: 10rem;
   }
 }
 @media only screen and (min-width: 112.5em) {
@@ -417,6 +418,16 @@ textarea {
   margin-top: 2rem;
   transition: box-shadow 200ms ease, transform 200ms ease;
 }
+@media only screen and (max-width: 56.25em) {
+  .resume-preview {
+    height: 32rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .resume-preview {
+    height: 24rem;
+  }
+}
 .resume-preview:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   transform: translateY(-2px);
@@ -544,6 +555,11 @@ textarea {
   color: inherit;
   cursor: pointer;
   transition: transform 220ms ease, box-shadow 220ms ease;
+}
+@media only screen and (max-width: 37.5em) {
+  .hobbies__item {
+    padding: 1.5rem;
+  }
 }
 .hobbies__item:hover {
   transform: translateY(-6px) scale(1.02);
@@ -705,7 +721,6 @@ textarea {
 }
 .journey__cards-container {
   padding: 4rem;
-  margin-top: 6rem;
   width: 80vw;
   max-width: 100%;
   border-radius: 5px;
@@ -715,8 +730,9 @@ textarea {
 }
 @media only screen and (max-width: 37.5em) {
   .journey__cards-container {
-    padding: 3rem;
-    gap: 1rem;
+    width: 90vw;
+    padding: 1.5rem;
+    gap: 3.5rem;
   }
 }
 .journey__card {
@@ -749,7 +765,7 @@ textarea {
   flex-direction: row-reverse;
 }
 .journey__card--sm {
-  padding: 0.75rem;
+  padding: 3rem;
   min-height: 64px;
 }
 .journey__card-body {
@@ -808,8 +824,9 @@ textarea {
 }
 .journey__card-media img {
   display: block;
+  width: 100%;
   height: 100%;
-  width: auto;
+  object-fit: cover;
 }
 .journey__card--no-media .journey__card-body {
   padding-right: 0;
@@ -819,7 +836,7 @@ textarea {
     padding: 2.25rem 0;
   }
   .journey__cards-container {
-    gap: 1rem;
+    gap: 3.5rem;
   }
   .journey .journey__card {
     flex-direction: column;
@@ -837,6 +854,11 @@ textarea {
   .journey .journey__card-excerpt {
     -webkit-line-clamp: 4;
     line-clamp: 4;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .journey .journey__card {
+    padding: 3rem;
   }
 }
 .journey__year-divider {
@@ -994,21 +1016,29 @@ textarea {
     display: none;
   }
 }
+.header__sm-menu-version-toggle {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 3rem;
+  border-top: 1px solid #eee;
+}
 .header__sm-menu-version-toggle a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
-  padding: 2.5rem 3rem;
-  font-size: 1.6rem;
+  padding: 0.55rem 1.4rem;
+  font-size: 1.3rem;
   color: #3EB489;
-  text-align: right;
-  border-bottom: 1px solid #eee;
+  border: 2px solid #3EB489;
+  border-radius: 50px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: color 0.3s, transform 0.2s ease;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.2s ease;
 }
 .header__sm-menu-version-toggle a:hover {
-  color: rgb(46.320661157, 134.479338843, 102.3537190083);
+  background: #3EB489;
+  color: #fff;
   transform: scale(1.08);
 }
 .header__main-ham-menu-cont {

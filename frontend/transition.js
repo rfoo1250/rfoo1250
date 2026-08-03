@@ -25,30 +25,32 @@
     });
   }
 
-  var toggle = document.querySelector('.header__version-toggle');
-  if (!toggle) return;
+  var toggles = document.querySelectorAll('.header__version-toggle, .header__sm-menu-version-toggle a');
+  if (!toggles.length) return;
 
-  toggle.addEventListener('click', function (e) {
-    e.preventDefault();
-    var href = toggle.getAttribute('href');
-    var dest = href.indexOf('version=pro') !== -1 ? 'index-pro.html' : 'index.html';
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var href = toggle.getAttribute('href');
+      var dest = href.indexOf('version=pro') !== -1 ? 'index-pro.html' : 'index.html';
 
-    sessionStorage.setItem(SWITCH_KEY, '1');
+      sessionStorage.setItem(SWITCH_KEY, '1');
 
-    // Snap overlay back above the viewport with no animation, then slide it down
-    overlay.classList.remove('page-transition-overlay--visible', 'page-transition-overlay--departing');
-    overlay.classList.add('page-transition-overlay--no-transition');
-    void overlay.offsetWidth; // force reflow so snap commits before transition re-enables
-    overlay.classList.remove('page-transition-overlay--no-transition');
-    overlay.classList.add('page-transition-overlay--visible');
+      // Snap overlay back above the viewport with no animation, then slide it down
+      overlay.classList.remove('page-transition-overlay--visible', 'page-transition-overlay--departing');
+      overlay.classList.add('page-transition-overlay--no-transition');
+      void overlay.offsetWidth; // force reflow so snap commits before transition re-enables
+      overlay.classList.remove('page-transition-overlay--no-transition');
+      overlay.classList.add('page-transition-overlay--visible');
 
-    var navigated = false;
-    function goToPage() {
-      if (navigated) return;
-      navigated = true;
-      window.location.href = dest;
-    }
-    overlay.addEventListener('transitionend', goToPage, { once: true });
-    setTimeout(goToPage, DURATION + 100);
+      var navigated = false;
+      function goToPage() {
+        if (navigated) return;
+        navigated = true;
+        window.location.href = dest;
+      }
+      overlay.addEventListener('transitionend', goToPage, { once: true });
+      setTimeout(goToPage, DURATION + 100);
+    });
   });
 }());

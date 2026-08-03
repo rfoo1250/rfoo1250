@@ -23,6 +23,7 @@ html {
   @include mixins.respond(tab-port) {
     // width < 900?
     font-size: 56%; //1 rem =
+    scroll-padding-top: 10rem;
   }
 
   @include mixins.respond(big-desktop) {
