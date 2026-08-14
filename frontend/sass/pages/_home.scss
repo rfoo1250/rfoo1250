@@ -544,7 +544,9 @@ $journey-meta-size: 1.4rem;
   &__cards-container {
     padding: $journey-container-padding;
     width: $journey-container-width;
-    max-width: 100%;
+    // caps card width on large screens (matches .main-container's cap) so
+    // text lines don't stretch unreadably wide on 1920px+ viewports
+    max-width: 120rem;
     border-radius: variables.$commonBorderRadius;
     margin: $journey-container-top auto 0 auto;
     display: grid;

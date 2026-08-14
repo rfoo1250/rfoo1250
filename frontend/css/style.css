@@ -734,7 +734,7 @@ textarea {
 .journey__cards-container {
   padding: 4rem;
   width: 80vw;
-  max-width: 100%;
+  max-width: 120rem;
   border-radius: 5px;
   margin: 5rem auto 0 auto;
   display: grid;
