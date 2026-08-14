@@ -6,13 +6,12 @@ const express    = require('express');
 const rateLimit  = require('express-rate-limit');
 const cors       = require('cors');
 const helmet     = require('helmet');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const validator  = require('validator');
 
 // Fail fast if any required env var is missing
 const REQUIRED_ENV = [
-  'SMTP_HOST', 'SMTP_PORT', 'SMTP_SECURE', 'SMTP_USER', 'SMTP_PASS',
-  'CONTACT_TO_EMAIL', 'ALLOWED_ORIGIN',
+  'RESEND_API_KEY', 'CONTACT_TO_EMAIL', 'ALLOWED_ORIGIN',
 ];
 const missing = REQUIRED_ENV.filter(k => !process.env[k]);
 if (missing.length) {
@@ -20,16 +19,8 @@ if (missing.length) {
   process.exit(1);
 }
 
-// Create transporter once at startup
-const transporter = nodemailer.createTransport({
-  host:   process.env.SMTP_HOST,
-  port:   parseInt(process.env.SMTP_PORT, 10),
-  secure: process.env.SMTP_SECURE === 'true',
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+// Create Resend client once at startup
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -88,13 +79,14 @@ app.post('/contact', contactLimiter, async (req, res) => {
   }
 
   try {
-    await transporter.sendMail({
-      from:    `"${cleanName}" <${process.env.SMTP_USER}>`,
+    const { error } = await resend.emails.send({
+      from:    'Portfolio Contact <onboarding@resend.dev>',
       to:      process.env.CONTACT_TO_EMAIL,
       replyTo: cleanEmail,
       subject: `Portfolio Contact - ${cleanName}`,
       text:    `Name: ${cleanName}\nEmail: ${cleanEmail}\n\nMessage:\n${cleanMessage}`,
     });
+    if (error) throw error;
     res.json({ success: true, message: 'Your message has been sent!' });
   } catch (err) {
     console.error('Mail error:', err);

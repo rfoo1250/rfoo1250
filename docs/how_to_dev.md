@@ -1,10 +1,11 @@
 # Backend
-It uses Render (free tier). Express contact-form API (`backend/server.js`) that sends mail via nodemailer.
+It uses Render (free tier). Express contact-form API (`backend/server.js`) that sends mail via Resend (HTTP API, not SMTP — Render's free tier blocks outbound SMTP ports).
 
 1. `cd backend && npm install`
-2. Copy `.env.example` to `.env` and fill in `SMTP_*`, `CONTACT_TO_EMAIL`, `ALLOWED_ORIGIN` (all required, server exits if missing)
+2. Copy `.env.example` to `.env` and fill in `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `ALLOWED_ORIGIN` (all required, server exits if missing). Get the API key from resend.com; sign up with the same address as `CONTACT_TO_EMAIL` since the unverified `onboarding@resend.dev` sender can only send to your own account email.
 3. `npm run dev` (auto-restart) or `npm start` — runs on `PORT` (default 3000)
-4. Test endpoints: `GET /ping`, `POST /contact` (or run `node test-mail.js` to test SMTP directly)
+4. Test endpoints: `GET /ping`, `POST /contact` (or run `node test-mail.js` to send a real test email via Resend)
+5. On Render: set `RESEND_API_KEY` (and the other env vars) in the dashboard's Environment tab, then redeploy.
 
 
 # Sass
