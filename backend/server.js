@@ -37,6 +37,9 @@ const PORT = process.env.PORT || 3000;
 // Security headers (X-Frame-Options, X-Content-Type-Options, etc.)
 app.use(helmet());
 
+// Trust proxy headers (for rate limiting behind a reverse proxy)
+app.set('trust proxy', 1);
+
 // Only accept requests from the portfolio origin
 app.use(cors({
   origin: process.env.ALLOWED_ORIGIN,
