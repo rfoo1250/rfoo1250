@@ -1,3 +1,14 @@
+@use "sass:math";
+
+// Fluidly scales a property between $min (at $min-vw) and $max (at $max-vw),
+// so it stays at $max until viewport shrinks, then eases down to $min.
+// Both $min/$max should be in the same unit (px), ordered smallest-first.
+@function fluid($min, $max, $min-vw: 320px, $max-vw: 600px) {
+  $slope: math.div(math.div($max, 1px) - math.div($min, 1px), math.div($max-vw, 1px) - math.div($min-vw, 1px));
+  $y-intercept: math.div($min, 1px) - $slope * math.div($min-vw, 1px);
+  @return clamp(#{$min}, calc(#{$y-intercept}px + #{$slope * 100}vw), #{$max});
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone
