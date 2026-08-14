@@ -7,8 +7,8 @@
   color: #fff;
   background: linear-gradient(
       to right,
-      rgba(variables.$themeClrPrimary, 0.8),
-      rgba(variables.$themeClrPrimary, 0.8)
+      rgba(var(--theme-clr-primary-rgb), 0.8),
+      rgba(var(--theme-clr-primary-rgb), 0.8)
     ),
     url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-position: center;
@@ -183,7 +183,7 @@
     text-indent: 0;
     margin-top: 0.4rem;
     font-size: 1.4rem;
-    color: variables.$themeClrPrimary;
+    color: var(--theme-clr-primary);
     word-break: break-all;
 
     &:hover {
@@ -394,8 +394,8 @@
 .contact {
   background: linear-gradient(
       to right,
-      rgba(variables.$themeClrPrimary, 0.8),
-      rgba(variables.$themeClrPrimary, 0.8)
+      rgba(var(--theme-clr-primary-rgb), 0.8),
+      rgba(var(--theme-clr-primary-rgb), 0.8)
     ),
     url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-size: cover;
@@ -527,8 +527,8 @@ $journey-meta-size: 1.4rem;
   // mirror the contact background you provided
   background: linear-gradient(
       to right,
-      rgba(variables.$themeClrPrimary, 0.8),
-      rgba(variables.$themeClrPrimary, 0.8)
+      rgba(var(--theme-clr-primary-rgb), 0.8),
+      rgba(var(--theme-clr-primary-rgb), 0.8)
     ),
     url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-size: cover;

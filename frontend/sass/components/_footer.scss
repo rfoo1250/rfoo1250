@@ -60,6 +60,7 @@
 
   &__icon {
     display: inline-flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     height: $icon-size;
@@ -69,14 +70,54 @@
     transition: transform 200ms ease;
 
     img, svg {
-      transition: filter 200ms ease, transform 200ms ease;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    // Theme-colored silhouette, masked from the same icon image, faded in on hover.
+    // Recolors exactly to var(--theme-clr-primary) regardless of the source image's
+    // own color, so it tracks Personal/Professional automatically.
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: var(--theme-clr-primary);
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      -webkit-mask-size: contain;
+      opacity: 0;
+      transition: opacity 200ms ease, transform 200ms ease;
+      pointer-events: none;
     }
 
     &:hover img,
     &:hover svg {
+      opacity: 0;
       transform: scale(1.25);
-      // brightness(0) → black, then colorize to $themeClrPrimary (#3EB489)
-      filter: brightness(0) saturate(100%) invert(62%) sepia(40%) saturate(700%) hue-rotate(116deg);
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+
+    &--email::after {
+      mask-image: url(../assets/png/white-email-ico.png);
+      -webkit-mask-image: url(../assets/png/white-email-ico.png);
+    }
+    &--github::after {
+      mask-image: url(../assets/png/github-ico.png);
+      -webkit-mask-image: url(../assets/png/github-ico.png);
+    }
+    &--linkedin::after {
+      mask-image: url(../assets/png/linkedin-ico.png);
+      -webkit-mask-image: url(../assets/png/linkedin-ico.png);
+    }
+    &--scholar::after {
+      mask-image: url(../assets/png/google-scholar-50-ico.png);
+      -webkit-mask-image: url(../assets/png/google-scholar-50-ico.png);
     }
   }
 

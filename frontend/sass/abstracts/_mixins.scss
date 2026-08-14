@@ -1,4 +1,10 @@
 @use "sass:math";
+@use "sass:color";
+
+// Comma-separated "R, G, B" channels of $color, for use in rgba(var(--x-rgb), alpha).
+@function rgb-triplet($color) {
+  @return #{color.channel($color, "red", $space: rgb)}, #{color.channel($color, "green", $space: rgb)}, #{color.channel($color, "blue", $space: rgb)};
+}
 
 // Fluidly scales a property between $min (at $min-vw) and $max (at $max-vw),
 // so it stays at $max until viewport shrinks, then eases down to $min.

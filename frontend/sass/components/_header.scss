@@ -1,6 +1,5 @@
 @use "sass:color";
 @use "../abstracts/mixins";
-@use "../abstracts/variables";
 
 $hover-scale: 1.08;
 
@@ -37,7 +36,7 @@ $hover-scale: 1.08;
     transition: color .3s, transform .2s ease;
 
     &:hover {
-      color: variables.$themeClrPrimary;
+      color: var(--theme-clr-primary);
       transform: scale($hover-scale);
     }
   }
@@ -47,7 +46,7 @@ $hover-scale: 1.08;
     border-radius: 50px;
     overflow: hidden;
     margin-right: 1.5rem;
-    background: variables.$themeClrPrimary;
+    background: var(--theme-clr-primary);
 
     @include mixins.respond(tab-port) {
       width: 4.5rem;
@@ -95,7 +94,7 @@ $hover-scale: 1.08;
     transition: color .3s, transform .2s ease;
 
     &:hover {
-      color: variables.$themeClrPrimary;
+      color: var(--theme-clr-primary);
       transform: scale($hover-scale);
     }
     @include mixins.respond(tab-port) {
@@ -109,18 +108,18 @@ $hover-scale: 1.08;
     flex-shrink: 0;
     padding: 0.55rem 1.4rem;
     margin: auto 0 auto 1.5rem;
-    border: 2px solid variables.$themeClrPrimary;
+    border: 2px solid var(--theme-clr-primary);
     border-radius: 50px;
     font-size: 1.3rem;
     font-weight: 700;
-    color: variables.$themeClrPrimary;
+    color: var(--theme-clr-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
     transition: background .2s, color .2s, transform .2s ease;
 
     &:hover {
-      background: variables.$themeClrPrimary;
+      background: var(--theme-clr-primary);
       color: #fff;
       transform: scale($hover-scale);
     }
@@ -218,7 +217,7 @@ $hover-scale: 1.08;
       transition: color .3s, transform .2s ease;
 
       &:hover {
-        color: variables.$themeClrPrimary;
+        color: var(--theme-clr-primary);
         transform: scale($hover-scale);
       }
     }

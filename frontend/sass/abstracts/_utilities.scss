@@ -48,7 +48,7 @@
       top: calc(100% + 1.5rem);
       height: 5px;
       width: 10rem;
-      background: variables.$themeClrPrimary;
+      background: var(--theme-clr-primary);
       left: 50%;
       transform: translateX(-50%);
       border-radius: variables.$commonBorderRadius;
@@ -116,13 +116,13 @@
   }
 
   &--theme {
-    background: variables.$themeClrPrimary;
+    background: var(--theme-clr-primary);
     color: #fff;
   }
   &--theme-inv {
-    color: variables.$themeClrPrimary;
+    color: var(--theme-clr-primary);
     background: #fff;
-    border: 2px solid variables.$themeClrPrimary;
+    border: 2px solid var(--theme-clr-primary);
     box-shadow: none;
     padding: calc(1.5rem - 2px) calc(5rem - 2px);
   }

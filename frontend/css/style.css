@@ -22,6 +22,8 @@ Inside media queries 1em is always 16px i.e 1em = 16px at every screen size only
 }
 
 html {
+  --theme-clr-primary: #3EB489;
+  --theme-clr-primary-rgb: 62, 180, 137;
   font-size: 62.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
@@ -41,6 +43,11 @@ html {
   html {
     font-size: 65%;
   }
+}
+
+html[data-version=pro] {
+  --theme-clr-primary: #064E3B;
+  --theme-clr-primary-rgb: 6, 78, 59;
 }
 
 body {
@@ -129,7 +136,7 @@ textarea {
   top: calc(100% + 1.5rem);
   height: 5px;
   width: 10rem;
-  background: #3EB489;
+  background: var(--theme-clr-primary);
   left: 50%;
   transform: translateX(-50%);
   border-radius: 5px;
@@ -193,13 +200,13 @@ textarea {
   font-size: 1.6rem;
 }
 .btn--theme {
-  background: #3EB489;
+  background: var(--theme-clr-primary);
   color: #fff;
 }
 .btn--theme-inv {
-  color: #3EB489;
+  color: var(--theme-clr-primary);
   background: #fff;
-  border: 2px solid #3EB489;
+  border: 2px solid var(--theme-clr-primary);
   box-shadow: none;
   padding: calc(1.5rem - 2px) calc(5rem - 2px);
 }
@@ -232,7 +239,7 @@ textarea {
 
 .home-hero {
   color: #fff;
-  background: linear-gradient(to right, rgba(62, 180, 137, 0.8), rgba(62, 180, 137, 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
+  background: linear-gradient(to right, rgba(var(--theme-clr-primary-rgb), 0.8), rgba(var(--theme-clr-primary-rgb), 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-position: center;
   height: 100vh;
   min-height: 80rem;
@@ -398,7 +405,7 @@ textarea {
   text-indent: 0;
   margin-top: 0.4rem;
   font-size: 1.4rem;
-  color: #3EB489;
+  color: var(--theme-clr-primary);
   word-break: break-all;
 }
 .publications-list__doi:hover {
@@ -598,7 +605,7 @@ textarea {
 }
 
 .contact {
-  background: linear-gradient(to right, rgba(62, 180, 137, 0.8), rgba(62, 180, 137, 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
+  background: linear-gradient(to right, rgba(var(--theme-clr-primary-rgb), 0.8), rgba(var(--theme-clr-primary-rgb), 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -711,7 +718,7 @@ textarea {
 }
 
 .journey {
-  background: linear-gradient(to right, rgba(62, 180, 137, 0.8), rgba(62, 180, 137, 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
+  background: linear-gradient(to right, rgba(var(--theme-clr-primary-rgb), 0.8), rgba(var(--theme-clr-primary-rgb), 0.8)), url(../assets/topographic-map-background/mint_green_topographic_background.jpg);
   background-size: cover;
   background-position: center;
   padding: 4rem 0;
@@ -910,7 +917,7 @@ textarea {
   transition: color 0.3s, transform 0.2s ease;
 }
 .header__logo-container:hover {
-  color: #3EB489;
+  color: var(--theme-clr-primary);
   transform: scale(1.08);
 }
 .header__logo-img-cont {
@@ -919,7 +926,7 @@ textarea {
   border-radius: 50px;
   overflow: hidden;
   margin-right: 1.5rem;
-  background: #3EB489;
+  background: var(--theme-clr-primary);
 }
 @media only screen and (max-width: 56.25em) {
   .header__logo-img-cont {
@@ -973,7 +980,7 @@ textarea {
   transition: color 0.3s, transform 0.2s ease;
 }
 .header__link:hover {
-  color: #3EB489;
+  color: var(--theme-clr-primary);
   transform: scale(1.08);
 }
 @media only screen and (max-width: 56.25em) {
@@ -987,18 +994,18 @@ textarea {
   flex-shrink: 0;
   padding: 0.55rem 1.4rem;
   margin: auto 0 auto 1.5rem;
-  border: 2px solid #3EB489;
+  border: 2px solid var(--theme-clr-primary);
   border-radius: 50px;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #3EB489;
+  color: var(--theme-clr-primary);
   text-transform: uppercase;
   letter-spacing: 1px;
   white-space: nowrap;
   transition: background 0.2s, color 0.2s, transform 0.2s ease;
 }
 .header__version-toggle:hover {
-  background: #3EB489;
+  background: var(--theme-clr-primary);
   color: #fff;
   transform: scale(1.08);
 }
@@ -1093,7 +1100,7 @@ textarea {
   transition: color 0.3s, transform 0.2s ease;
 }
 .header__sm-menu-link a:hover {
-  color: #3EB489;
+  color: var(--theme-clr-primary);
   transform: scale(1.08);
 }
 .header__sm-menu-link:first-child a {
@@ -1160,6 +1167,7 @@ textarea {
 }
 .main-footer__icon {
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   height: 24px;
@@ -1169,11 +1177,46 @@ textarea {
   transition: transform 200ms ease;
 }
 .main-footer__icon img, .main-footer__icon svg {
-  transition: filter 200ms ease, transform 200ms ease;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.main-footer__icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--theme-clr-primary);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  opacity: 0;
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
 }
 .main-footer__icon:hover img, .main-footer__icon:hover svg {
+  opacity: 0;
   transform: scale(1.25);
-  filter: brightness(0) saturate(100%) invert(62%) sepia(40%) saturate(700%) hue-rotate(116deg);
+}
+.main-footer__icon:hover::after {
+  opacity: 1;
+  transform: scale(1.25);
+}
+.main-footer__icon--email::after {
+  mask-image: url(../assets/png/white-email-ico.png);
+  -webkit-mask-image: url(../assets/png/white-email-ico.png);
+}
+.main-footer__icon--github::after {
+  mask-image: url(../assets/png/github-ico.png);
+  -webkit-mask-image: url(../assets/png/github-ico.png);
+}
+.main-footer__icon--linkedin::after {
+  mask-image: url(../assets/png/linkedin-ico.png);
+  -webkit-mask-image: url(../assets/png/linkedin-ico.png);
+}
+.main-footer__icon--scholar::after {
+  mask-image: url(../assets/png/google-scholar-50-ico.png);
+  -webkit-mask-image: url(../assets/png/google-scholar-50-ico.png);
 }
 .main-footer__icon img, .main-footer__icon svg {
   display: block;

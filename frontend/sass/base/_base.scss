@@ -1,4 +1,5 @@
 @use "../abstracts/mixins";
+@use "../abstracts/variables";
 
 *,
 *::after,
@@ -10,6 +11,10 @@
 }
 
 html {
+  // Theme color, switched per page by the data-version attribute on <html>
+  --theme-clr-primary: #{variables.$themeClrPersonal};
+  --theme-clr-primary-rgb: #{mixins.rgb-triplet(variables.$themeClrPersonal)};
+
   // This defines what 1rem is
   font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
   scroll-behavior: smooth;
@@ -29,6 +34,11 @@ html {
   @include mixins.respond(big-desktop) {
     font-size: 65%; //1rem =
   }
+}
+
+html[data-version="pro"] {
+  --theme-clr-primary: #{variables.$themeClrProfessional};
+  --theme-clr-primary-rgb: #{mixins.rgb-triplet(variables.$themeClrProfessional)};
 }
 
 body {
