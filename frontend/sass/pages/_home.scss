@@ -573,23 +573,6 @@ $journey-meta-size: 1.4rem;
       background $journey-transition;
     min-height: 15rem;
 
-    // clickable whole-card variant
-    &--link {
-      cursor: pointer;
-
-      &:hover,
-      &:focus {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.14);
-        outline: none;
-      }
-
-      &:focus-visible {
-        outline: 3px solid rgba(100,150,255,0.18);
-        outline-offset: 2px;
-      }
-    }
-
     // reverse layout (image on left)
     &--reverse {
       flex-direction: row-reverse;

@@ -92,22 +92,12 @@ function formatDate(iso) {
 }
 
 function createCardNode(card) {
-	// choose tag: anchor if clickable, article if not
-	const wrapper = card.url
-		? document.createElement("a")
-		: document.createElement("article");
+	// cards are never clickable as a whole — a hover-only cue doesn't
+	// reach mobile/touch users, so a url gets an explicit button instead
+	const wrapper = document.createElement("article");
 
-	// common classes and attributes
-	wrapper.className = "journey__card" + (card.url ? " journey__card--link" : "");
-	if (card.url) {
-		wrapper.setAttribute("href", card.url);
-		wrapper.setAttribute("rel", "noopener noreferrer");
-		wrapper.setAttribute("target", "_blank");
-		wrapper.setAttribute("aria-label", card.title);
-	} else {
-		// for articles give an accessible name by id
-		if (card.id) wrapper.setAttribute("aria-labelledby", `${card.id}-title`);
-	}
+	wrapper.className = "journey__card";
+	if (card.id) wrapper.setAttribute("aria-labelledby", `${card.id}-title`);
 
 	// body
 	const body = document.createElement("div");
@@ -134,21 +124,20 @@ function createCardNode(card) {
 	body.appendChild(excerpt);
 	body.appendChild(meta);
 
-	// optional action button for non-clickable cards
-	if (!card.url) {
+	// explicit link button — replaces the old whole-card link so the
+	// affordance is visible on touch devices, not just on desktop hover
+	if (card.url) {
 		const actions = document.createElement("div");
 		actions.className = "journey__card-actions";
-		// only show Read button if local url exists (you could extend data with 'readUrl')
-		if (card.readUrl) {
-			const btn = document.createElement("a");
-			btn.className = "btn btn--sm";
-			btn.setAttribute("href", card.readUrl);
-			btn.setAttribute("target", "_blank");
-			btn.setAttribute("rel", "noopener noreferrer");
-			btn.textContent = "Read";
-			actions.appendChild(btn);
-		}
-		if (actions.children.length) body.appendChild(actions);
+		const btn = document.createElement("a");
+		btn.className = "btn btn--sm btn--theme";
+		btn.setAttribute("href", card.url);
+		btn.setAttribute("target", "_blank");
+		btn.setAttribute("rel", "noopener noreferrer");
+		btn.setAttribute("aria-label", `View: ${card.title}`);
+		btn.textContent = document.documentElement.dataset.version === "pro" ? "Source" : "Sauce";
+		actions.appendChild(btn);
+		body.appendChild(actions);
 	}
 
 	wrapper.appendChild(body);

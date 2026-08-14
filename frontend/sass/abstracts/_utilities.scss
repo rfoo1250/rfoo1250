@@ -114,6 +114,11 @@
     padding: 1.5rem 5rem;
     font-size: 1.6rem;
   }
+  &--sm {
+    padding: 0.6rem 1.8rem;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
 
   &--theme {
     background: var(--theme-clr-primary);

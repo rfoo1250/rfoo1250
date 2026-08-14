@@ -199,6 +199,11 @@ textarea {
   padding: 1.5rem 5rem;
   font-size: 1.6rem;
 }
+.btn--sm {
+  padding: 0.6rem 1.8rem;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
 .btn--theme {
   background: var(--theme-clr-primary);
   color: #fff;
@@ -755,18 +760,6 @@ textarea {
   text-decoration: none;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
   min-height: 15rem;
-}
-.journey__card--link {
-  cursor: pointer;
-}
-.journey__card--link:hover, .journey__card--link:focus {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
-  outline: none;
-}
-.journey__card--link:focus-visible {
-  outline: 3px solid rgba(100, 150, 255, 0.18);
-  outline-offset: 2px;
 }
 .journey__card--reverse {
   flex-direction: row-reverse;

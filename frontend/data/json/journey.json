@@ -13,7 +13,7 @@
     {
         "id": "safename-project",
         "title": "Small project called SafeName",
-        "excerpt": "I like to save papers with their actual titles, but sometimes it will have characters that are not allowed in file names. So I built a simple project called SafeName that takes in a string and replaces all the characters that are not allowed in file names with underscores.",
+        "excerpt": "I like to save papers with their actual titles, but sometimes it will have characters that are not allowed in file names. So I built a simple terminal app called SafeName that takes in a string and replaces all the characters that are not allowed in file names with underscores.",
         "date": "2026-03-14",
         "meta": null,
         "image": null,
