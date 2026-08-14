@@ -1,3 +1,11 @@
+# Backend
+It uses Render (free tier). Express contact-form API (`backend/server.js`) that sends mail via nodemailer.
+
+1. `cd backend && npm install`
+2. Copy `.env.example` to `.env` and fill in `SMTP_*`, `CONTACT_TO_EMAIL`, `ALLOWED_ORIGIN` (all required, server exits if missing)
+3. `npm run dev` (auto-restart) or `npm start` — runs on `PORT` (default 3000)
+4. Test endpoints: `GET /ping`, `POST /contact` (or run `node test-mail.js` to test SMTP directly)
+
 
 # Sass
 Sass will need to compile, first
