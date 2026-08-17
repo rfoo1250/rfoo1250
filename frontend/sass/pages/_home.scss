@@ -579,10 +579,13 @@ $journey-meta-size: 1.4rem;
     width: $journey-card-width;
 
     // zigzag: odd cards lean left, even cards lean right
-    &:nth-child(odd) {
+    // (nth-of-type, not nth-child, since connector elements are now
+    // interleaved siblings of a different tag — this counts only among
+    // the <article> cards, ignoring them)
+    &:nth-of-type(odd) {
       justify-self: start;
     }
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       justify-self: end;
     }
 
@@ -667,12 +670,46 @@ $journey-meta-size: 1.4rem;
     }
   } // end &__card
 
+  // ---------- Chronology connector (between zigzagged cards) ----------
+  // Decorative only — points from the older (lower) card up to the newer
+  // (upper) one. Only makes sense while the zigzag itself is active, so
+  // it's hidden at tab-port and below, same as the zigzag reset.
+  &__connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // centered rather than full-width: the left/right cards' inner edges
+    // already overlap near the container's midpoint (70%-wide alternating
+    // cards leave a shared "waist" zone), so a fixed, correctly-proportioned
+    // box placed there avoids stretching the curve's aspect ratio
+    justify-self: center;
+    width: 22rem;
+    height: 8rem;
+    // fully opaque: with any alpha, the overlapping stroke + arrowhead
+    // fill double up and show a visible seam at the join
+    color: #fff;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      // the arrowhead's base sits at the curve's endpoint and its tip
+      // extends slightly beyond — allow that overshoot instead of
+      // clipping it at the viewBox edge
+      overflow: visible;
+    }
+  }
+
   // ---------- Responsive behavior ----------
   @include mixins.respond(tab-port) {
     padding: 2.25rem 0;
 
     &__cards-container {
       gap: $journey-gap;
+    }
+
+    &__connector {
+      display: none;
     }
 
     .journey__card {

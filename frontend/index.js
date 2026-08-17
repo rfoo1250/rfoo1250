@@ -265,6 +265,61 @@ if (journeyModal) {
 	});
 }
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+let connectorIdCounter = 0;
+
+// curved connector pointing from the older (lower) card up to the newer
+// (upper) one; "left"/"right" describes which side it curves *up into*,
+// matching whichever side the upper card leans toward in the zigzag
+function createConnector(direction) {
+	const wrapper = document.createElement("div");
+	wrapper.className = "journey__connector";
+	wrapper.setAttribute("aria-hidden", "true");
+
+	const markerId = `journeyArrow-${connectorIdCounter++}`;
+
+	const svg = document.createElementNS(SVG_NS, "svg");
+	// matches the .journey__connector box's 22rem : 8rem aspect ratio, so
+	// the curve scales uniformly with no stretch distortion
+	svg.setAttribute("viewBox", "0 0 220 80");
+
+	const defs = document.createElementNS(SVG_NS, "defs");
+	const marker = document.createElementNS(SVG_NS, "marker");
+	marker.setAttribute("id", markerId);
+	marker.setAttribute("viewBox", "0 0 10 10");
+	// refX at the triangle's back edge (0), so the base — not the tip —
+	// lands on the path's endpoint, and the tip extends past it
+	marker.setAttribute("refX", "0");
+	marker.setAttribute("refY", "5");
+	marker.setAttribute("markerWidth", "5");
+	marker.setAttribute("markerHeight", "5");
+	marker.setAttribute("orient", "auto");
+	const arrowHead = document.createElementNS(SVG_NS, "path");
+	arrowHead.setAttribute("d", "M0,0 L10,5 L0,10 z");
+	arrowHead.setAttribute("fill", "currentColor");
+	marker.appendChild(arrowHead);
+	defs.appendChild(marker);
+	svg.appendChild(defs);
+
+	const curve = document.createElementNS(SVG_NS, "path");
+	// single quarter-arc (one control point, no S-inflection): starts
+	// moving horizontally out to the side, ends moving straight up
+	curve.setAttribute("d", direction === "left"
+		? "M190,72 Q30,72 30,8"
+		: "M30,72 Q190,72 190,8");
+	curve.setAttribute("fill", "none");
+	curve.setAttribute("stroke", "currentColor");
+	curve.setAttribute("stroke-width", "3");
+	// butt, not round: with the tip anchored exactly on the endpoint, a
+	// round cap would bulge slightly past the tip as a stray dot
+	curve.setAttribute("stroke-linecap", "butt");
+	curve.setAttribute("marker-end", `url(#${markerId})`);
+	svg.appendChild(curve);
+
+	wrapper.appendChild(svg);
+	return wrapper;
+}
+
 async function loadAndRenderCards() {
 	const container = document.getElementById("journeyCards");
 	if (!container) return console.warn("Journey container not found");
@@ -286,11 +341,15 @@ async function loadAndRenderCards() {
 	// clear container
 	container.innerHTML = "";
 
-	// create nodes and append
-	for (const card of cards) {
-		const node = createCardNode(card);
-		container.appendChild(node);
-	}
+	// create nodes and append, with a connector between each pair —
+	// odd-indexed pairs curve left (matching an odd/left-leaning upper
+	// card), even-indexed pairs curve right
+	cards.forEach((card, i) => {
+		if (i > 0) {
+			container.appendChild(createConnector(i % 2 === 1 ? "left" : "right"));
+		}
+		container.appendChild(createCardNode(card));
+	});
 }
 
 // run on DOM ready
