@@ -515,6 +515,7 @@ $journey-container-width-mobile: 90vw;
 $journey-container-padding: 4rem;
 $journey-container-padding-mobile: 1.5rem;
 $journey-container-top: 5rem;
+$journey-card-width: 90%;
 $journey-media-width: 180px;
 $journey-media-aspect: math.div(16, 9);
 $journey-transition: 160ms ease;
@@ -571,9 +572,19 @@ $journey-meta-size: 1.4rem;
     box-shadow: $journey-card-shadow;
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
     transition: transform $journey-transition, box-shadow $journey-transition,
       background $journey-transition;
     min-height: 15rem;
+    width: $journey-card-width;
+
+    // zigzag: odd cards lean left, even cards lean right
+    &:nth-child(odd) {
+      justify-self: start;
+    }
+    &:nth-child(even) {
+      justify-self: end;
+    }
 
     // reverse layout (image on left)
     &--reverse {
@@ -667,6 +678,8 @@ $journey-meta-size: 1.4rem;
     .journey__card {
       flex-direction: column; // stack text then media
       align-items: stretch;
+      width: 100%;
+      justify-self: stretch; // zigzag only applies at full desktop width
 
       &--reverse {
         flex-direction: column;
@@ -708,3 +721,96 @@ $journey-meta-size: 1.4rem;
     background: rgba(255,255,255,0.02);
   }
 } // end .journey
+
+// ---------- Journey detail popup ----------
+// Native <dialog>: showModal() renders it in the browser's top layer, so it
+// sits above the fixed header etc. with no z-index bookkeeping needed, and
+// ::backdrop gives the dim overlay for free. We just drive a simple opacity
+// fade around the open/close via a JS-toggled class (see index.js).
+.journey-modal {
+  // the site's global `* { margin: 0 }` reset defeats <dialog>'s built-in
+  // auto-centering, so it's pinned back explicitly here
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: none;
+  border-radius: $journey-card-radius;
+  padding: 0;
+  width: 90vw;
+  max-width: 65rem;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: $journey-card-bg;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 200ms ease;
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0);
+    transition: background 200ms ease;
+  }
+
+  &.is-visible::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  &__media {
+    width: 100%;
+    aspect-ratio: $journey-media-aspect;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    padding: $journey-card-padding;
+  }
+
+  &__title {
+    margin: 0 0 0.75rem 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #333;
+  }
+
+  &__meta {
+    margin: 0 0 1.5rem 0;
+    font-size: $journey-meta-size;
+    color: #999;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    time { font-style: normal; color: inherit; }
+  }
+
+  &__excerpt {
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.7;
+    color: #555;
+    white-space: pre-line;
+  }
+
+  &__actions {
+    margin-top: 2rem;
+  }
+
+  @include mixins.respond(phone) {
+    width: 92vw;
+
+    &__body {
+      padding: $journey-container-padding-mobile;
+    }
+  }
+}

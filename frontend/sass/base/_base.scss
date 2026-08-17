@@ -15,6 +15,11 @@ html {
   --theme-clr-primary: #{variables.$themeClrPersonal};
   --theme-clr-primary-rgb: #{mixins.rgb-triplet(variables.$themeClrPersonal)};
 
+  // Minimal themed scrollbar (Firefox) — inherits to scrollable descendants
+  // like the journey modal, so this one declaration covers the whole site
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--theme-clr-primary-rgb), 0.4) transparent;
+
   // This defines what 1rem is
   font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
   scroll-behavior: smooth;
@@ -75,4 +80,22 @@ button {
 
 textarea {
   resize: none;
+}
+
+// Minimal themed scrollbar (Chromium/Safari) — matches scrollbar-width/color
+// above; applied to * so it covers the page and any scrollable container
+// (e.g. the journey modal) uniformly.
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--theme-clr-primary-rgb), 0.4);
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--theme-clr-primary-rgb), 0.65);
 }

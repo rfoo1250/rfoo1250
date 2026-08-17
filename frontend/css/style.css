@@ -24,6 +24,8 @@ Inside media queries 1em is always 16px i.e 1em = 16px at every screen size only
 html {
   --theme-clr-primary: #3EB489;
   --theme-clr-primary-rgb: 62, 180, 137;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--theme-clr-primary-rgb), 0.4) transparent;
   font-size: 62.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
@@ -83,6 +85,24 @@ button {
 
 textarea {
   resize: none;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--theme-clr-primary-rgb), 0.4);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--theme-clr-primary-rgb), 0.65);
 }
 
 .heading-primary {
@@ -240,6 +260,10 @@ textarea {
 
 .d-none {
   display: none;
+}
+
+.modal-open {
+  overflow: hidden;
 }
 
 .home-hero {
@@ -758,8 +782,16 @@ textarea {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
   min-height: 15rem;
+  width: 90%;
+}
+.journey__card:nth-child(odd) {
+  justify-self: start;
+}
+.journey__card:nth-child(even) {
+  justify-self: end;
 }
 .journey__card--reverse {
   flex-direction: row-reverse;
@@ -841,6 +873,8 @@ textarea {
   .journey .journey__card {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
+    justify-self: stretch;
   }
   .journey .journey__card--reverse {
     flex-direction: column;
@@ -873,6 +907,84 @@ textarea {
   padding: 2rem;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.02);
+}
+
+.journey-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  width: 90vw;
+  max-width: 65rem;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.journey-modal.is-visible {
+  opacity: 1;
+}
+.journey-modal::backdrop {
+  background: rgba(0, 0, 0, 0);
+  transition: background 200ms ease;
+}
+.journey-modal.is-visible::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+.journey-modal__media {
+  width: 100%;
+  aspect-ratio: 1.7777777778;
+  overflow: hidden;
+}
+.journey-modal__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.journey-modal__body {
+  padding: 3rem;
+}
+.journey-modal__title {
+  margin: 0 0 0.75rem 0;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #333;
+}
+.journey-modal__meta {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.4rem;
+  color: #999;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.journey-modal__meta time {
+  font-style: normal;
+  color: inherit;
+}
+.journey-modal__excerpt {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: #555;
+  white-space: pre-line;
+}
+.journey-modal__actions {
+  margin-top: 2rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .journey-modal {
+    width: 92vw;
+  }
+  .journey-modal__body {
+    padding: 1.5rem;
+  }
 }
 
 .header {

@@ -91,13 +91,50 @@ function formatDate(iso) {
 	}
 }
 
+// shared by the inline card and the modal so the "view source" link is
+// built identically in both places
+function createActionButton(card, extraClass) {
+	const btn = document.createElement("a");
+	btn.className = ["btn", "btn--sm", "btn--theme", "journey-card-action", extraClass].filter(Boolean).join(" ");
+	btn.setAttribute("href", card.url);
+	btn.setAttribute("target", "_blank");
+	btn.setAttribute("rel", "noopener noreferrer");
+	btn.setAttribute("aria-label", `View: ${card.title}`);
+	btn.textContent = document.documentElement.dataset.version === "pro" ? "Source" : "Sauce";
+	return btn;
+}
+
+function buildMetaLine(card) {
+	const meta = document.createElement("p");
+	const dateText = formatDate(card.date);
+	meta.innerHTML = [
+		card.meta ? `${card.meta}` : "",
+		dateText ? `<time datetime="${card.date}">${dateText}</time>` : ""
+	].filter(Boolean).join(" · ");
+	return meta;
+}
+
 function createCardNode(card) {
-	// cards are never clickable as a whole — a hover-only cue doesn't
-	// reach mobile/touch users, so a url gets an explicit button instead
 	const wrapper = document.createElement("article");
 
 	wrapper.className = "journey__card";
+	wrapper.setAttribute("tabindex", "0");
+	wrapper.setAttribute("role", "button");
 	if (card.id) wrapper.setAttribute("aria-labelledby", `${card.id}-title`);
+
+	// clicking (or activating via keyboard) the card opens the full-detail
+	// popup; clicks on the action button itself are excluded so the link
+	// still just navigates
+	wrapper.addEventListener("click", (e) => {
+		if (e.target.closest(".journey-card-action")) return;
+		openJourneyModal(card);
+	});
+	wrapper.addEventListener("keydown", (e) => {
+		if (e.target.closest(".journey-card-action")) return;
+		if (e.key !== "Enter" && e.key !== " ") return;
+		e.preventDefault();
+		openJourneyModal(card);
+	});
 
 	// body
 	const body = document.createElement("div");
@@ -112,13 +149,8 @@ function createCardNode(card) {
 	excerpt.className = "journey__card-excerpt";
 	excerpt.textContent = card.excerpt || "";
 
-	const meta = document.createElement("p");
+	const meta = buildMetaLine(card);
 	meta.className = "journey__card-meta";
-	const dateText = formatDate(card.date);
-	meta.innerHTML = [
-		card.meta ? `${card.meta}` : "",
-		dateText ? `<time datetime="${card.date}">${dateText}</time>` : ""
-	].filter(Boolean).join(" · ");
 
 	body.appendChild(title);
 	body.appendChild(excerpt);
@@ -129,14 +161,7 @@ function createCardNode(card) {
 	if (card.url) {
 		const actions = document.createElement("div");
 		actions.className = "journey__card-actions";
-		const btn = document.createElement("a");
-		btn.className = "btn btn--sm btn--theme";
-		btn.setAttribute("href", card.url);
-		btn.setAttribute("target", "_blank");
-		btn.setAttribute("rel", "noopener noreferrer");
-		btn.setAttribute("aria-label", `View: ${card.title}`);
-		btn.textContent = document.documentElement.dataset.version === "pro" ? "Source" : "Sauce";
-		actions.appendChild(btn);
+		actions.appendChild(createActionButton(card));
 		body.appendChild(actions);
 	}
 
@@ -156,6 +181,88 @@ function createCardNode(card) {
 	}
 
 	return wrapper;
+}
+
+// ----------------------------------------------------------------------
+// Journey detail popup (native <dialog>: top-layer stacking + backdrop
+// come for free; we just drive a simple opacity fade around it)
+// ----------------------------------------------------------------------
+
+const journeyModal = document.getElementById("journeyModal");
+
+function openJourneyModal(card) {
+	if (!journeyModal) return;
+	journeyModal.innerHTML = "";
+
+	if (card.image) {
+		const media = document.createElement("div");
+		media.className = "journey-modal__media";
+		const img = document.createElement("img");
+		img.setAttribute("src", card.image);
+		img.setAttribute("alt", card.imageAlt || "");
+		media.appendChild(img);
+		journeyModal.appendChild(media);
+	}
+
+	const body = document.createElement("div");
+	body.className = "journey-modal__body";
+
+	const title = document.createElement("h3");
+	title.className = "journey-modal__title";
+	title.textContent = card.title || "Untitled";
+
+	const meta = buildMetaLine(card);
+	meta.className = "journey-modal__meta";
+
+	const excerpt = document.createElement("p");
+	excerpt.className = "journey-modal__excerpt";
+	excerpt.textContent = card.excerpt || "";
+
+	body.appendChild(title);
+	body.appendChild(meta);
+	body.appendChild(excerpt);
+
+	if (card.url) {
+		const actions = document.createElement("div");
+		actions.className = "journey-modal__actions";
+		actions.appendChild(createActionButton(card));
+		body.appendChild(actions);
+	}
+
+	journeyModal.appendChild(body);
+
+	journeyModal.showModal();
+	document.body.classList.add("modal-open");
+	// two rAFs: let the browser paint the just-opened (opacity:0) state
+	// before adding the class that transitions it to visible
+	requestAnimationFrame(() => {
+		requestAnimationFrame(() => {
+			journeyModal.classList.add("is-visible");
+		});
+	});
+}
+
+function closeJourneyModal() {
+	if (!journeyModal || !journeyModal.open) return;
+	journeyModal.classList.remove("is-visible");
+	document.body.classList.remove("modal-open");
+	journeyModal.addEventListener("transitionend", function onEnd() {
+		journeyModal.removeEventListener("transitionend", onEnd);
+		journeyModal.close();
+	}, { once: true });
+}
+
+if (journeyModal) {
+	// clicking anywhere in the popup closes it, except the action button
+	journeyModal.addEventListener("click", (e) => {
+		if (e.target.closest(".journey-card-action")) return;
+		closeJourneyModal();
+	});
+	// route the native Escape-to-close through the same fade-out
+	journeyModal.addEventListener("cancel", (e) => {
+		e.preventDefault();
+		closeJourneyModal();
+	});
 }
 
 async function loadAndRenderCards() {

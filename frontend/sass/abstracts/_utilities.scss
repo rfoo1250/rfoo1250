@@ -156,3 +156,8 @@
 .d-none {
   display: none;
 }
+
+// applied to <body> while the journey detail popup is open
+.modal-open {
+  overflow: hidden;
+}
