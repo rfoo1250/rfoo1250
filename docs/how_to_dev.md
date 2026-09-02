@@ -11,8 +11,10 @@ It uses Render (free tier). Express contact-form API (`backend/server.js`) that 
 Sass will need to compile, first
 1. Have Sass installed, by local, choco/apt/brew, or npm
 If npm, I use `nodevenv` to have it contained.
-2. `sass sass/main.scss css/style.css`
-Remember to change scss files and not css files
+2. Remember to change scss files and not css files
+```cmd
+sass sass/main.scss css/style.css
+```
 
 # Python local dev server
 to test:
@@ -27,7 +29,15 @@ taskkill /F /IM python.exe
 ```
 
 # Port forward to Internet using ngrok
-1. ngrok config add-authtoken <your_auth_token>
-2. ngrok http 8080
+1. 
+```cmd
+ngrok config add-authtoken <your_auth_token>
+```
+
+2. 
+```cmd
+ngrok http 8080
+```
+
 make sure you use the same port (port forwarding, duh)
 then you can see on desktop or mobile
