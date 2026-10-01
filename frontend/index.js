@@ -47,38 +47,6 @@ headerLogoConatiner.addEventListener('click', (e) => {
 // ----------------------------------------------------------------------
 
 const JOURNEY_JSON_PATH = CONFIG.journeyJsonPath;
-const FALLBACK_CARDS = [
-	{
-		id: "proj-launch",
-		title: "Project Launch — June 2024",
-		excerpt: "Launched a small game prototype exploring physics-based puzzles. Built with Phaser and React — learned about optimization and art pipelines.",
-		date: "2024-06-12",
-		meta: "Los Angeles · Prototype",
-		image: "./assets/jpeg/project-mockup-example.jpeg",
-		imageAlt: "Screenshot of project launch",
-		url: "https://example.com/article-1"
-	},
-	{
-		id: "graduation",
-		title: "Graduation Ceremony",
-		excerpt: "Graduated with a degree in Computer Science. Highlights included my capstone on web accessibility and a summer internship.",
-		date: "2023-05-15",
-		meta: null,
-		image: "./assets/jpeg/graduation-photo.jpeg",
-		imageAlt: "Graduation photo",
-		url: "./journey/graduation.html"
-	},
-	{
-		id: "volunteer",
-		title: "Volunteer Work — Food Bank",
-		excerpt: "Volunteered weekly — learned logistics, teamwork, and community outreach.",
-		date: "2022-11",
-		meta: null,
-		image: null,
-		imageAlt: null,
-		url: null
-	}
-];
 
 // format date to human-readable e.g. "Jun 12, 2024"
 function formatDate(iso) {
@@ -143,7 +111,7 @@ function createCardNode(card) {
 
 	const title = document.createElement("h3");
 	title.className = "journey__card-title";
-	title.id = card.id ? `${card.id}-title` : undefined;
+	if (card.id) title.id = `${card.id}-title`;
 	title.textContent = card.title || "Untitled";
 
 	const excerpt = document.createElement("p");
@@ -325,18 +293,12 @@ async function loadAndRenderCards() {
 	const container = document.getElementById("journeyCards");
 	if (!container) return console.warn("Journey container not found");
 
-	// Try to fetch journey.json (fallback to inline array if fetch fails)
-	let cards = null;
+	let cards = [];
 	try {
 		const resp = await fetch(JOURNEY_JSON_PATH, { cache: "no-cache" });
-		if (resp.ok) {
-			cards = await resp.json();
-		} else {
-			cards = FALLBACK_CARDS;
-		}
+		if (resp.ok) cards = await resp.json();
 	} catch (e) {
-		// network error or file not present — use fallback
-		cards = FALLBACK_CARDS;
+		// network error or file not present — render nothing
 	}
 
 	// clear container

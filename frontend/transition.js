@@ -25,7 +25,7 @@
     });
   }
 
-  var toggles = document.querySelectorAll('.header__version-toggle, .header__sm-menu-version-toggle a');
+  var toggles = document.querySelectorAll('.header__version-toggle');
   if (!toggles.length) return;
 
   toggles.forEach(function (toggle) {
