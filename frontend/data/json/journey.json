@@ -1,5 +1,4 @@
 [
-    
     {
         "id": "photo-quick-sorter-project",
         "title": "Small project for Quick Sorting your Photos",
@@ -71,16 +70,6 @@
         "url": null
     },
     {
-        "id": "deans-list-spring-2025",
-        "title": "Dean's List — Spring 2025",
-        "excerpt": "Named to the Dean's List for academic excellence during the Spring 2025 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
-        "date": "2025-06-02",
-        "meta": "Arizona State University · Tempe",
-        "image": null,
-        "imageAlt": null,
-        "url": "frontend/assets/pdf/Dean_List_for_S25.pdf"
-    },
-    {
         "id": "cs-capstone-project",
         "title": "IntegrateQuad: AI Pathway Engine for Foreign-Trained Physicians",
         "excerpt": "Led a Scrum-based team to build a full-stack recommendation engine helping immigrants navigate employment pathways in Canada, using React Native, Django, PostgreSQL, and a custom scoring algorithm to deliver data-driven career insights.",
@@ -89,6 +78,16 @@
         "image": "frontend/assets/jpeg/capstone_prez.JPG",
         "imageAlt": "CS Capstone photo of me with the team poster",
         "url": "https://www.linkedin.com/posts/saadkhanca_productownership-internshipsuccess-immigrationinnovation-activity-7337263605714690048-Ywh-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeWKOIBIqJuyIIs9l4ExY-S4RGpkbPdvFM"
+    },
+    {
+        "id": "deans-list-spring-2025",
+        "title": "Dean's List — Spring 2025",
+        "excerpt": "Named to the Dean's List for academic excellence during the Spring 2025 semester. Achieved a GPA of 4.0 while balancing coursework and extracurriculars.",
+        "date": "2025-06-02",
+        "meta": "Arizona State University · Tempe",
+        "image": null,
+        "imageAlt": null,
+        "url": "frontend/assets/pdf/Dean_List_for_S25.pdf"
     },
     {
         "id": "volunteering-dmml",
