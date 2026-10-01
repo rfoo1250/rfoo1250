@@ -12,7 +12,7 @@ Deployed on Render (free hosting). Contains the Node.js server (`server.js`), it
 You’re here 🙂 This folder contains all the project’s documentation. No fancy stuff, no external storage — just clear, simple docs written in Markdown or plain text.
 
 # frontend/
-Just to organize all the nitpicky frontend subfolders and HTMLs. Contains the compiled CSS, Sass source, assets, data, and JS entry point.
+Just to organize all the nitpicky frontend subfolders and HTMLs. Contains the compiled CSS, Sass source, assets, data, and the JS files (`index.js` entry point, `config.js`/`config-pro.js` settings, `router.js`, `preload.js`, `transition.js` for the Personal/Professional switch).
 
 ## frontend/assets/
 Contains project assets such as static images, GIFs, and other media files. Organized by file type:
@@ -27,7 +27,7 @@ Contains all the css rules and code files.
 
 ## frontend/data/
 Contains static data files loaded at runtime.
-- `json/` — JSON files (`journey.json`, `publications.json`) that drive dynamic content injection on the page.
+- `json/` — JSON files (`journey.json`, `journey-pro.json`, `publications.json`) that drive dynamic content injection on the page.
 
 ## frontend/sass/
 Contains all code for Sass, superset of CSS, fancier rules.

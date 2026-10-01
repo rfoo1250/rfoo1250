@@ -4,28 +4,38 @@ It uses Render (free tier). Express contact-form API (`backend/server.js`) that 
 1. `cd backend && npm install`
 2. Copy `.env.example` to `.env` and fill in `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `ALLOWED_ORIGIN` (all required, server exits if missing). Get the API key from resend.com; sign up with the same address as `CONTACT_TO_EMAIL` since the unverified `onboarding@resend.dev` sender can only send to your own account email.
 3. `npm run dev` (auto-restart) or `npm start` — runs on `PORT` (default 3000)
-4. Test endpoints: `GET /ping`, `POST /contact` (or run `node test-mail.js` to send a real test email via Resend)
+4. Test endpoints: `GET /ping`, `POST /contact`
 5. On Render: set `RESEND_API_KEY` (and the other env vars) in the dashboard's Environment tab, then redeploy.
 
 # Sass
-Sass will need to compile, first
-1. Have Sass installed, by local, choco/apt/brew, or npm
-If npm, I use `nodevenv` to have it contained.
-2. Remember to change scss files and not css files
-```cmd
-sass sass/main.scss css/style.css
+Compile Sass first, and edit the `.scss` files, never `css/style.css`.
+
+Get a `sass` binary one of these ways (the setup scripts find all of them):
+- `cd frontend && npm install` — uses the version pinned in `frontend/package.json`
+- a `nodevenv/` in the repo root (gitignored) with sass installed in it
+- global: `brew install sass/sass/sass`, `choco install sass`, or `npm i -g sass`
+
+One-shot compile, from the repo root:
+```sh
+./setup.sh    # Mac / Linux / Git Bash
+setup.bat     # Windows cmd
+```
+Or by hand, from `frontend/`:
+```sh
+sass sass/main.scss css/style.css    # one-shot
+npm run compile:scss                 # watch mode (needs npm install)
 ```
 
 # Python local dev server
-to test:
-```cmd
-python -m http.server 8080
+From the repo root:
+```sh
+python3 -m http.server 8080    # Mac / Linux
+python -m http.server 8080     # Windows
 ```
-
-to kill:
-```cmd
-# on Windows
-taskkill /F /IM python.exe
+Stop it with `Ctrl+C`. If it was left running somewhere else:
+```sh
+kill $(lsof -ti :8080)         # Mac / Linux
+taskkill /F /IM python.exe     # Windows
 ```
 
 # Port forward to Internet using ngrok
