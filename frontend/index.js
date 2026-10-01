@@ -85,7 +85,7 @@ function formatDate(iso) {
 	try {
 		const dt = new Date(iso);
 		if (isNaN(dt)) return iso; // fallback if partial like "2022-11"
-		return dt.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+		return dt.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
 	} catch (e) {
 		return iso;
 	}
