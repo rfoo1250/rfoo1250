@@ -38,7 +38,8 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 
 headerLogoConatiner.addEventListener('click', (e) => {
 	if (e.target.closest('.header__version-toggle')) return;
-	location.href = 'index.html'
+	// first nav link is always this page's own Home (differs per page/folder)
+	location.href = document.querySelector('.header__link').getAttribute('href')
 })
 
 // ----------------------------------------------------------------------
